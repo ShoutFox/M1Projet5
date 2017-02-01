@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Янв 26 2017 г., 12:58
+-- Время создания: Фев 01 2017 г., 07:48
 -- Версия сервера: 5.5.32
 -- Версия PHP: 5.4.17
 
@@ -11,16 +11,106 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+-- /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+-- /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+-- /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+-- /*!40101 SET NAMES utf8 */;
 
 --
 -- База данных: `projet5`
 --
 CREATE DATABASE `projet5` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `projet5`;
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `Competences`
+--
+
+CREATE TABLE IF NOT EXISTS `Competences` (
+  `Semestre` varchar(2) NOT NULL,
+  `CoursId` int(2) NOT NULL,
+  `Code` varchar(12) NOT NULL,
+  `Description` varchar(202) DEFAULT NULL,
+  `WWW` varchar(52) DEFAULT NULL,
+  PRIMARY KEY (`Code`),
+  UNIQUE KEY `Code` (`Code`),
+  KEY `Code_2` (`Code`),
+  KEY `CoursId` (`CoursId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `Competences`
+--
+
+INSERT INTO `Competences` (`Semestre`, `CoursId`, `Code`, `Description`, `WWW`) VALUES
+('S1', 1, 's1prmael01', 'Utiliser les nombres complexes pour décrire les impédances et les tensions', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362'),
+('S1', 1, 's1prmael02', 'Utiliser les lois élémentaires de l''électrocinétique (loi des nœuds, loi des mailles, diviseur de tension,…)', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362 '),
+('S1', 1, 's1prmael03', 'Concevoir un filtre passif du premier ordre et calculer sa fonction de transfert', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362'),
+('S1', 2, 's1projacou01', 'Pour un montage simple, câbler, exciter, mesurer', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S1', 2, 's1projacou02', 'Pour un montage simple, représenter des résultats et les confronter à un modèle', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S2', 3, 's2mecaflui01', 'Avoir des notions de rhéologie des fluides (viscosité, Reynolds,…).', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S2', 4, 's2baseinst01', 'Maîtriser les signaux d excitation et les caractéristiques des capteurs et actionneurs en acoustique et vibration', 'http://umtice.univ-lemans.fr/course/view.php?id=379'),
+('S2', 4, 's2baseinst02', 'Adapter les impédances d entrée et de sortie des différents appareils de mesure', 'http://umtice.univ-lemans.fr/course/view.php?id=379'),
+('S2', 4, 's2baseinst03', 'Connaître les bases et les biais induits par la numérisation des signaux', 'http://umtice.univ-lemans.fr/course/view.php?id=379'),
+('S2', 4, 's2baseinst04', 'Donner un résultat de mesure pertinent et évaluer son incertitude', 'http://umtice.univ-lemans.fr/course/view.php?id=379'),
+('S3', 5, 's3acouphys01', 'Résoudre un problème d''ondes planes dans le domaine fréquentiel avec conditions aux limites', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 5, 's3acouphys02', 'Trouver les modes propres d''un résonateur et résoudre un problème avec source', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 5, 's3acouphys03', 'Écrire un problème avec pertes et calculer l''intensité acoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 5, 's3acouphys04', 'Résoudre un problème d''ondes planes dans le domaine temporel avec conditions initiales', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 6, 's3mathnume01', 'Déterminer les valeurs propres et vecteurs propres d''une matrice.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi01', 'Écrire les torseurs transmissibles par des liaisons ou des contacts parfaits ou avec frottement', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi02', 'Isoler un système mécanique et écrire les équations d''équilibre d''un solide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi03', 'Calculer un torseur équivalent à un chargement réparti', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi04', 'Calculer le torseur cinématique (torseur distributeur de vitesses) dans le cas d''une composition de mouvement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi05', 'Calculer l''énergie cinétique et potentielle d''un solide indéformable.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi06', 'Écrire le principe fondamental de la dynamique pour un solide indéformable en précisant les éléments de réduction en un point du torseur dynamique du solide par rapport à un repère galiléen.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi07', 'Calculer la réponse temporelle d''un système à 1 degré de liberté en vibrations libres avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S3', 7, 's3mecarigi08', 'Calculer la réponse temporelle d''un système à 1 degré de liberté en vibrations forcées avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S4', 8, 's4elecacou01', 'Connaître les analogies électro-mécano-acoustiques de bases (dipôles R, L, C)', 'http://umtice.univ-lemans.fr/course/view.php?id=359'),
+('S4', 8, 's4elecacou02', 'Connaître, définir et utiliser les grandeurs caractérisant une chaîne électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=359'),
+('S4', 8, 's4elecacou03', 'Mesurer les grandeurs caractérisant une chaîne électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=359'),
+('S4', 8, 's4elecacou04', 'Mesurer l''impédance électrique d''un haut-parleur en fonction de la fréquence', 'http://umtice.univ-lemans.fr/course/view.php?id=359'),
+('S4', 8, 's4elecacou05', 'Savoir résoudre un problème utilisant des analogies électro-mécano-acoustiques', 'http://umtice.univ-lemans.fr/course/view.php?id=359'),
+('S4', 9, 's4mecardm01', 'Déterminer le chargement maximal admissible d''une structure composée de poutres.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860'),
+('S4', 9, 's4mecardm02', 'Calculer un torseur des forces de cohésion pour une sollicitation, et nommer ces sollicitations dans le cas d''une poutre droite.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860'),
+('S4', 9, 's4mecardm03', 'Déterminer si un système est isostatique, hypostatique ou hyperstatique de degré n.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860'),
+('S4', 9, 's4mecardm04', 'Déterminer les composantes d''un torseur d''efforts intérieurs dans le cas d''une poutre non droite..', 'http://umtice.univ-lemans.fr/course/view.php?id=2860'),
+('S4', 9, 's4mecardm05', 'Déterminer un élément du torseur de déplacement d''un point.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860'),
+('S5', 10, 's5mecaelas03', 'Pour un problème volumique, poser les équations nécessaires à sa résolution.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209'),
+('S5', 10, 's5mecaelas04', 'Déterminer et représenter l''état de déformation en un point d''un solide volumique à partir d''un champs de déplacement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209'),
+('S5', 10, 's5mecaelas05', 'Déterminer pour un problème donné, l''état de déformation, de contrainte et la charge maximale.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209'),
+('S5', 10, 's5mecaelas06', 'Déterminer l''état de déformation en un point d''un solide à partir de mesures avec une rosette de déformation.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209'),
+('S5', 10, 's5mecaelas07', 'Déterminer, représenter l''état de contrainte en un point d''un solide et d''estimer si la limite d''élasticité est franchie, à partir des données en un point.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209'),
+('S5', 11, 's5ranmeca01', 'Utiliser l''équation de Bernoulli.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 11, 's5ranmeca02', 'Calculer la réponse temporelle d''un système à 2 degré de liberté en vibrations libres avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 11, 's5ranmeca03', 'Calculer la réponse temporelle d''un système à 2 degré de liberté en vibrations forcées avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 11, 's5ranmeca04', 'Pour un système réel énoncer les différentes hypothèses simplificatrices plausibles', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 11, 's5ranmeca05', 'Estimer les ordres de grandeurs de grandeurs mécaniques.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo01', 'Savoir ce que représentent la température, la pression et connaître les unités associées. Loi des gaz parfaits.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo02', 'Savoir calculer un travail et connaître les transformations adiabatiques – Premier principe', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo03', 'Connaître les transformations simples de la thermodynamique : isochore, isobare, isotherme', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo04', 'Comprendre la notion de cycle et de machine thermodynamique et savoir calculer un rendement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo05', 'Savoir calculer des variations d''entropie.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo06', 'Savoir utiliser la notion de différentielle.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S5', 12, 's5thermo07', 'Connaître les principes de la calorimétrie et savoir calculer les échanges de chaleur.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 13, 's6chal01', 'Résoudre un problème de thermique pour des applications simples (murs, fenêtre, habitat, ailettes de refroidissement, pont thermique…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 13, 's6chal02', 'Écrire un bilan thermique pour des configurations géométriques élémentaires (plan, cylindre, sphère,…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 13, 's6chal03', 'Résoudre les équations différentielles associées à un problème de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 13, 's6chal04', 'Poser un problème simple de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 13, 's6chal05', 'Utiliser l''équation aux dimensions et la théorie de la similitude pour résoudre un problème de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 14, 's6elecacou01', 'Appliquer les analogies acoustique-électrique-mécanique pour des problèmes de transduction', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 14, 's6elecacou02', 'Manipuler les schémas électriques (Bode, loi des nœuds, …) dans le contexte de l''électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 14, 's6elecacou03', 'Comprendre les différents types de transduction (électrodynamique, électrostatique,…) ainsi que leurs caractéristiques (sensibilités, réponse en fréquence, distorsion,…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S6', 15, 's6guidonde01', 'Déterminer par la méthode de séparation de variables, les fonctions propres et les valeurs propres des modes dans un guide d ondes infini à parois rigides et contruire le champs acoustique total', ''),
+('S6', 15, 's6guidonde02', 'Déterminer le champs acoustique total dans un guide d ondes à parois rigides avec source.', ''),
+('S6', 15, 's6guidonde03', 'Maitriser les concepts de vitesse de phase, de groupe et les courbes associées en fonction de la fréquence, les modes propagatifs et évanescents, et calculer les flux d''énergie dans un guide d ondes', ''),
+('S6', 15, 's6guidonde04', 'Déterminer l''équation de dispersion pour un guide d ondes infini à parois traitées', ''),
+('S6', 15, 's6guidonde05', 'Calculer les coefficients de réflexion et de transmission des modes dans un guide d ondes infini à parois rigides avec une discontinuité', ''),
+('S6', 15, 's6guidonde06', 'Calculer la fonction de Green dans une cavité avec parois rigides', ''),
+('S7', 15, 's7ranmeca01', 'Poser et résoudre un problème de statique du solide rigide avec frottement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S7', 15, 's7ranmeca02', 'Poser et résoudre un problème de dynamique en translation du solide rigide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619'),
+('S7', 15, 's7ranmeca03', 'Poser et résoudre un problème de dynamique en mouvement plan du solide rigide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619');
 
 -- --------------------------------------------------------
 
@@ -29,10 +119,12 @@ USE `projet5`;
 --
 
 CREATE TABLE IF NOT EXISTS `CompEtud` (
-  `CompEtud_CompetenceCode` varchar(12) CHARACTER SET utf8mb4 NOT NULL,
+  `CompEtud_CompetenceCode` varchar(12)  NOT NULL,
   `CompEtud_EtudiantId` int(8) NOT NULL,
-  `CompEtud_Etat` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `CompEtud_Etat` int(1) NOT NULL,
+  KEY `CompEtud_CompetenceCode` (`CompEtud_CompetenceCode`),
+  KEY `CompEtud_EtudiantId` (`CompEtud_EtudiantId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `CompEtud`
@@ -1191,102 +1283,201 @@ INSERT INTO `CompEtud` (`CompEtud_CompetenceCode`, `CompEtud_EtudiantId`, `CompE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Competences`
+-- Структура таблицы `CompParent`
 --
 
-CREATE TABLE IF NOT EXISTS `Competences` (
-  `Semestre` varchar(2) DEFAULT NULL,
-  `CoursId` int(2) DEFAULT NULL,
-  `Responsable` varchar(37) DEFAULT NULL,
-  `Code` varchar(12) DEFAULT NULL,
-  `Cx` int(2) DEFAULT NULL,
-  `Cy` int(2) DEFAULT NULL,
-  `Description` varchar(202) DEFAULT NULL,
-  `WWW` varchar(52) DEFAULT NULL,
-  `Parent1` varchar(12) DEFAULT NULL,
-  `Parent2` varchar(12) DEFAULT NULL,
-  `Parent3` varchar(12) DEFAULT NULL,
-  `Parent4` varchar(12) DEFAULT NULL,
-  `Parent5` varchar(10) DEFAULT NULL,
-  `Parent6` varchar(10) DEFAULT NULL,
-  `Parent7` varchar(10) DEFAULT NULL,
-  `Parent8` varchar(10) DEFAULT NULL,
-  `Parent9` varchar(10) DEFAULT NULL,
-  `Parent10` varchar(10) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `CompParent` (
+  `CompParent_Son` varchar(12) NOT NULL,
+  `CompParent_Father` varchar(12) NOT NULL,
+  KEY `CompParent_Son` (`CompParent_Son`),
+  KEY `CompParent_Father` (`CompParent_Father`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CodeId1 - son, CodeId2 - Parent';
 
 --
--- Дамп данных таблицы `Competences`
+-- Дамп данных таблицы `CompParent`
 --
 
-INSERT INTO `Competences` (`Semestre`, `CoursId`, `Responsable`, `Code`, `Cx`, `Cy`, `Description`, `WWW`, `Parent1`, `Parent2`, `Parent3`, `Parent4`, `Parent5`, `Parent6`, `Parent7`, `Parent8`, `Parent9`, `Parent10`) VALUES
-('S1', 1, 'Charfeddine Mechri ', 's1prmael01', 6, 45, 'Utiliser les nombres complexes pour décrire les impédances et les tensions', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362', '', '', '', '', '', '', '', '', '', ''),
-('S1', 1, 'Charfeddine Mechri ', 's1prmael02', 18, 46, 'Utiliser les lois élémentaires de l''électrocinétique (loi des nœuds, loi des mailles, diviseur de tension,…)', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362 ', 's1prmael01', '', '', ' ', '', '', '', '', '', ''),
-('S1', 1, 'Charfeddine Mechri ', 's1prmael03', 31, 45, 'Concevoir un filtre passif du premier ordre et calculer sa fonction de transfert', 'http://umtice.univ-lemans.fr/enrol/index.php?id=362', 's1prmael02', '', '', '', '', '', '', '', '', ''),
-('S1', 2, 'Alann Renault', 's1projacou01', 6, 86, 'Pour un montage simple, câbler, exciter, mesurer', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', '', '', '', '', '', '', '', '', ''),
-('S1', 2, 'Alann Renault', 's1projacou02', 21, 87, 'Pour un montage simple, représenter des résultats et les confronter à un modèle', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's1projacou01', 's1prmael02', '', '', '', '', '', '', '', ''),
-('S2', 3, 'Wenping Bi', 's2mecaflui01', 5, 56, 'Avoir des notions de rhéologie des fluides (viscosité, Reynolds,…).', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', '', '', '', '', '', '', '', '', ''),
-('S2', 4, 'Christophe Ayrault /Bertrand Lihoreau', 's2baseinst01', 7, 75, 'Maîtriser les signaux d excitation et les caractéristiques des capteurs et actionneurs en acoustique et vibration', 'http://umtice.univ-lemans.fr/course/view.php?id=379', 's1projacou01', '', '', '', '', '', '', '', '', ''),
-('S2', 4, 'Christophe Ayrault /Bertrand Lihoreau', 's2baseinst02', 7, 70, 'Adapter les impédances d entrée et de sortie des différents appareils de mesure', 'http://umtice.univ-lemans.fr/course/view.php?id=379', 's1projacou01', 's1prmael03', '', '', '', '', '', '', '', ''),
-('S2', 4, 'Christophe Ayrault /Bertrand Lihoreau', 's2baseinst03', 7, 65, 'Connaître les bases et les biais induits par la numérisation des signaux', 'http://umtice.univ-lemans.fr/course/view.php?id=379', 's1projacou01', '', '', '', '', '', '', '', '', ''),
-('S2', 4, 'Christophe Ayrault /Bertrand Lihoreau', 's2baseinst04', 17, 70, 'Donner un résultat de mesure pertinent et évaluer son incertitude', 'http://umtice.univ-lemans.fr/course/view.php?id=379', 's2baseinst01', 's2baseinst02', 's2baseinst03', 's1projacou02', '', '', '', '', '', ''),
-('S3', 5, 'Jean-Pierre Dalmont', 's3acouphys01', 7, 79, 'Résoudre un problème d''ondes planes dans le domaine fréquentiel avec conditions aux limites', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S3', 5, 'Jean-Pierre Dalmont', 's3acouphys02', 15, 75, 'Trouver les modes propres d''un résonateur et résoudre un problème avec source', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3acouphys01', '', '', ' ', '', '', '', '', '', ''),
-('S3', 5, 'Jean-Pierre Dalmont', 's3acouphys03', 27, 79, 'Écrire un problème avec pertes et calculer l''intensité acoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3acouphys01', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S3', 5, 'Jean-Pierre Dalmont', 's3acouphys04', 6, 72, 'Résoudre un problème d''ondes planes dans le domaine temporel avec conditions initiales', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3acouphys02', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S3', 6, 'Olivier Dazel', 's3mathnume01', 10, 50, 'Déterminer les valeurs propres et vecteurs propres d''une matrice.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi01', 9, 24, 'Écrire les torseurs transmissibles par des liaisons ou des contacts parfaits ou avec frottement', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi02', 21, 22, 'Isoler un système mécanique et écrire les équations d''équilibre d''un solide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi01', 's3mecarigi03', '', ' ', '', '', '', '', '', ''),
-('S3', 7, 'Jean-Michel Génevaux', 's3mecarigi03', 10, 19, 'Calculer un torseur équivalent à un chargement réparti', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', '', '', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi04', 9, 29, 'Calculer le torseur cinématique (torseur distributeur de vitesses) dans le cas d''une composition de mouvement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi06', '', ' ', '', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi05', 22, 31, 'Calculer l''énergie cinétique et potentielle d''un solide indéformable.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi04', ' ', '', '', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi06', 25, 26, 'Écrire le principe fondamental de la dynamique pour un solide indéformable en précisant les éléments de réduction en un point du torseur dynamique du solide par rapport à un repère galiléen.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi04', 's3mecarigi01', ' ', '', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi07', 37, 22, 'Calculer la réponse temporelle d''un système à 1 degré de liberté en vibrations libres avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi06', '', '', ' ', '', '', '', '', '', ''),
-('S3', 7, 'Catherine Potel', 's3mecarigi08', 54, 22, 'Calculer la réponse temporelle d''un système à 1 degré de liberté en vibrations forcées avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi07', '', ' ', '', '', '', '', '', '', ''),
-('S4', 8, 'Manuel Melon', 's4elecacou01', 10, 80, 'Connaître les analogies électro-mécano-acoustiques de bases (dipôles R, L, C)', 'http://umtice.univ-lemans.fr/course/view.php?id=359', 's1prmael01', '', ' ', ' ', '', '', '', '', '', ''),
-('S4', 8, 'Manuel Melon', 's4elecacou02', 20, 72, 'Connaître, définir et utiliser les grandeurs caractérisant une chaîne électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=359', 's4elecacou01', 's2baseinst01', ' ', ' ', '', '', '', '', '', ''),
-('S4', 8, 'Manuel Melon', 's4elecacou03', 30, 72, 'Mesurer les grandeurs caractérisant une chaîne électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=359', 's1projacou01', 's4elecacou02', '', ' ', '', '', '', '', '', ''),
-('S4', 8, 'Manuel Melon', 's4elecacou04', 23, 82, 'Mesurer l''impédance électrique d''un haut-parleur en fonction de la fréquence', 'http://umtice.univ-lemans.fr/course/view.php?id=359', 's1projacou01', 's4elecacou01', 's2baseinst02', ' ', '', '', '', '', '', ''),
-('S4', 8, 'Manuel Melon', 's4elecacou05', 25, 78, 'Savoir résoudre un problème utilisant des analogies électro-mécano-acoustiques', 'http://umtice.univ-lemans.fr/course/view.php?id=359', 's1prmael02', 's4elecacou01', ' ', ' ', '', '', '', '', '', ''),
-('S4', 9, 'Najat Tahani/Jean-Michel Génevaux', 's4mecardm01', 37, 18, 'Déterminer le chargement maximal admissible d''une structure composée de poutres.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S4', 9, 'Najat Tahani/Jean-Michel Génevaux', 's4mecardm02', 20, 23, 'Calculer un torseur des forces de cohésion pour une sollicitation, et nommer ces sollicitations dans le cas d''une poutre droite.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860', 's4mecardm03', ' ', '', '', '', '', '', '', '', ''),
-('S4', 9, 'Najat Tahani/Jean-Michel Génevaux', 's4mecardm03', 10, 20, 'Déterminer si un système est isostatique, hypostatique ou hyperstatique de degré n.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860', 's3mecarigi02', '', '', ' ', '', '', '', '', '', ''),
-('S4', 9, 'Najat Tahani/Jean-Michel Génevaux', 's4mecardm04', 21, 18, 'Déterminer les composantes d''un torseur d''efforts intérieurs dans le cas d''une poutre non droite..', 'http://umtice.univ-lemans.fr/course/view.php?id=2860', 's4mecardm03', '', '', ' ', '', '', '', '', '', ''),
-('S4', 9, 'Najat Tahani/Jean-Michel Génevaux', 's4mecardm05', 37, 23, 'Déterminer un élément du torseur de déplacement d''un point.', 'http://umtice.univ-lemans.fr/course/view.php?id=2860', 's4mecardm04', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S5', 10, 'Najat Tahani/Jean-Michel Génevaux', 's5mecaelas03', 42, 24, 'Pour un problème volumique, poser les équations nécessaires à sa résolution.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209', 's5mecaelas06', 's5mecaelas07', 's5mecaelas05', ' ', '', '', '', '', '', ''),
-('S5', 10, 'Najat Tahani/Jean-Michel Génevaux', 's5mecaelas04', 8, 24, 'Déterminer et représenter l''état de déformation en un point d''un solide volumique à partir d''un champs de déplacement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209', 's3mathnume01', 's3mecarigi04', ' ', ' ', '', '', '', '', '', ''),
-('S5', 10, 'Najat Tahani/Jean-Michel Génevaux', 's5mecaelas05', 62, 24, 'Déterminer pour un problème donné, l''état de déformation, de contrainte et la charge maximale.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S5', 10, 'Najat Tahani/Jean-Michel Génevaux', 's5mecaelas06', 27, 21, 'Déterminer l''état de déformation en un point d''un solide à partir de mesures avec une rosette de déformation.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209', 's5mecaelas07', '', ' ', ' ', '', '', '', '', '', ''),
-('S5', 10, 'Najat Tahani/Jean-Michel Génevaux', 's5mecaelas07', 26, 27, 'Déterminer, représenter l''état de contrainte en un point d''un solide et d''estimer si la limite d''élasticité est franchie, à partir des données en un point.', 'http://umtice.univ-lemans.fr/course/view.php?id=2209', 's5mecaelas04', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S5', 11, 'Catherine Potel/Jean-Michel Génevaux', 's5ranmeca01', 6, 9, 'Utiliser l''équation de Bernoulli.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', '', '', '', '', '', '', '', '', ''),
-('S5', 11, 'Catherine Potel/Jean-Michel Génevaux', 's5ranmeca02', 5, 14, 'Calculer la réponse temporelle d''un système à 2 degré de liberté en vibrations libres avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi07', '', '', '', '', '', '', '', '', ''),
-('S5', 11, 'Catherine Potel/Jean-Michel Génevaux', 's5ranmeca03', 22, 14, 'Calculer la réponse temporelle d''un système à 2 degré de liberté en vibrations forcées avec ou sans amortissement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi08', 's5ranmeca02', '', '', '', '', '', '', '', ''),
-('S5', 11, 'Catherine Potel/Jean-Michel Génevaux', 's5ranmeca04', 22, 6, 'Pour un système réel énoncer les différentes hypothèses simplificatrices plausibles', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's5ranmeca05', '', '', '', '', '', '', '', '', ''),
-('S5', 11, 'Catherine Potel/Jean-Michel Génevaux', 's5ranmeca05', 6, 5, 'Estimer les ordres de grandeurs de grandeurs mécaniques.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', '', '', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo01', 3, 47, 'Savoir ce que représentent la température, la pression et connaître les unités associées. Loi des gaz parfaits.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo02', 28, 45, 'Savoir calculer un travail et connaître les transformations adiabatiques – Premier principe', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's5thermo03', 's5thermo04', 's5thermo05', '', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo03', 15, 47, 'Connaître les transformations simples de la thermodynamique : isochore, isobare, isotherme', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's5thermo01', '', '', ' ', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo04', 45, 49, 'Comprendre la notion de cycle et de machine thermodynamique et savoir calculer un rendement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', '', ' ', ' ', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo05', 45, 44, 'Savoir calculer des variations d''entropie.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', '', ' ', ' ', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo06', 15, 52, 'Savoir utiliser la notion de différentielle.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S5', 12, 'Bruno Brouard', 's5thermo07', 28, 49, 'Connaître les principes de la calorimétrie et savoir calculer les échanges de chaleur.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's5thermo03', 's5thermo06', 's5thermo04', 's5thermo05', '', '', '', '', '', ''),
-('S6', 13, 'Bernard Castagnède', 's6chal01', 45, 45, 'Résoudre un problème de thermique pour des applications simples (murs, fenêtre, habitat, ailettes de refroidissement, pont thermique…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's6chal02', 's6chal05', ' ', ' ', '', '', '', '', '', ''),
-('S6', 13, 'Bernard Castagnède', 's6chal02', 10, 45, 'Écrire un bilan thermique pour des configurations géométriques élémentaires (plan, cylindre, sphère,…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's6chal03', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S6', 13, 'Bernard Castagnède', 's6chal03', 23, 48, 'Résoudre les équations différentielles associées à un problème de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's6chal02', 's6chal04', ' ', ' ', '', '', '', '', '', ''),
-('S6', 13, 'Bernard Castagnède', 's6chal04', 10, 50, 'Poser un problème simple de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', '', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S6', 13, 'Bernard Castagnède', 's6chal05', 25, 43, 'Utiliser l''équation aux dimensions et la théorie de la similitude pour résoudre un problème de thermique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's6chal02', '', ' ', ' ', '', '', '', '', '', ''),
-('S6', 14, 'Guillaume Penelet', 's6elecacou01', 11, 73, 'Appliquer les analogies acoustique-électrique-mécanique pour des problèmes de transduction', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's4elecacou01', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S6', 14, 'Guillaume Penelet', 's6elecacou02', 10, 76, 'Manipuler les schémas électriques (Bode, loi des nœuds, …) dans le contexte de l''électroacoustique', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', ' ', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S6', 14, 'Guillaume Penelet', 's6elecacou03', 10, 80, 'Comprendre les différents types de transduction (électrodynamique, électrostatique,…) ainsi que leurs caractéristiques (sensibilités, réponse en fréquence, distorsion,…)', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', ' ', ' ', ' ', ' ', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde01', 10, 60, 'Déterminer par la méthode de séparation de variables, les fonctions propres et les valeurs propres des modes dans un guide d ondes infini à parois rigides et contruire le champs acoustique total', '', 's3acouphys02', '', '', '', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde02', 15, 65, 'Déterminer le champs acoustique total dans un guide d ondes à parois rigides avec source.', '', 's6guidonde01', '', '', '', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde03', 15, 60, 'Maitriser les concepts de vitesse de phase, de groupe et les courbes associées en fonction de la fréquence, les modes propagatifs et évanescents, et calculer les flux d''énergie dans un guide d ondes', '', 's6guidonde01', '', '', '', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde04', 17, 55, 'Déterminer l''équation de dispersion pour un guide d ondes infini à parois traitées', '', 's6guidonde01', 's6guidonde03', 's3acouphys03', '', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde05', 22, 63, 'Calculer les coefficients de réflexion et de transmission des modes dans un guide d ondes infini à parois rigides avec une discontinuité', '', 's6guidonde03', 's6guidonde02', '', '', '', '', '', '', '', ''),
-('S6', 15, 'Wenping Bi', 's6guidonde06', 22, 67, 'Calculer la fonction de Green dans une cavité avec parois rigides', '', 's6guidonde02', '', '', '', '', '', '', '', '', ''),
-('S7', 15, 'Frédéric Ablitzer', 's7ranmeca01', 10, 20, 'Poser et résoudre un problème de statique du solide rigide avec frottement.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's3mecarigi06', '', '', ' ', '', '', '', '', '', ''),
-('S7', 15, 'Frédéric Ablitzer', 's7ranmeca02', 22, 20, 'Poser et résoudre un problème de dynamique en translation du solide rigide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's7ranmeca01', '', ' ', ' ', '', '', '', '', '', ''),
-('S7', 15, 'Frédéric Ablitzer', 's7ranmeca03', 36, 20, 'Poser et résoudre un problème de dynamique en mouvement plan du solide rigide.', 'http://umtice.univ-lemans.fr/course/view.php?id=2619', 's7ranmeca02', ' ', ' ', ' ', '', '', '', '', '', '');
+INSERT INTO `CompParent` (`CompParent_Son`, `CompParent_Father`) VALUES
+('s1prmael02', 's1prmael01'),
+('s1prmael03', 's1prmael02'),
+('s1projacou02', 's1projacou01'),
+('s2baseinst01', 's1projacou01'),
+('s2baseinst02', 's1projacou01'),
+('s2baseinst03', 's1projacou01'),
+('s2baseinst04', 's2baseinst01'),
+('s3acouphys02', 's3acouphys01'),
+('s3acouphys03', 's3acouphys01'),
+('s3acouphys04', 's3acouphys02'),
+('s3mecarigi02', 's3mecarigi01'),
+('s3mecarigi04', 's3mecarigi06'),
+('s3mecarigi05', 's3mecarigi04'),
+('s3mecarigi06', 's3mecarigi04'),
+('s3mecarigi07', 's3mecarigi06'),
+('s3mecarigi08', 's3mecarigi07'),
+('s4elecacou01', 's1prmael01'),
+('s4elecacou02', 's4elecacou01'),
+('s4elecacou03', 's1projacou01'),
+('s4elecacou04', 's1projacou01'),
+('s4elecacou05', 's1prmael02'),
+('s4mecardm02', 's4mecardm03'),
+('s4mecardm03', 's3mecarigi02'),
+('s4mecardm04', 's4mecardm03'),
+('s4mecardm05', 's4mecardm04'),
+('s5mecaelas03', 's5mecaelas06'),
+('s5mecaelas04', 's3mathnume01'),
+('s5mecaelas06', 's5mecaelas07'),
+('s5mecaelas07', 's5mecaelas04'),
+('s5ranmeca02', 's3mecarigi07'),
+('s5ranmeca03', 's3mecarigi08'),
+('s5ranmeca04', 's5ranmeca05'),
+('s5thermo02', 's5thermo03'),
+('s5thermo03', 's5thermo01'),
+('s5thermo07', 's5thermo03'),
+('s6chal01', 's6chal02'),
+('s6chal02', 's6chal03'),
+('s6chal03', 's6chal02'),
+('s6chal05', 's6chal02'),
+('s6elecacou01', 's4elecacou01'),
+('s6guidonde01', 's3acouphys02'),
+('s6guidonde02', 's6guidonde01'),
+('s6guidonde03', 's6guidonde01'),
+('s6guidonde04', 's6guidonde01'),
+('s6guidonde05', 's6guidonde03'),
+('s6guidonde06', 's6guidonde02'),
+('s7ranmeca01', 's3mecarigi06'),
+('s7ranmeca02', 's7ranmeca01'),
+('s7ranmeca03', 's7ranmeca02'),
+('s1projacou02', 's1prmael02'),
+('s2baseinst02', 's1prmael03'),
+('s2baseinst04', 's2baseinst02'),
+('s3mecarigi02', 's3mecarigi03'),
+('s3mecarigi06', 's3mecarigi01'),
+('s4elecacou02', 's2baseinst01'),
+('s4elecacou03', 's4elecacou02'),
+('s4elecacou04', 's4elecacou01'),
+('s4elecacou05', 's4elecacou01'),
+('s5mecaelas03', 's5mecaelas07'),
+('s5mecaelas04', 's3mecarigi04'),
+('s5ranmeca03', 's5ranmeca02'),
+('s5thermo02', 's5thermo04'),
+('s5thermo07', 's5thermo06'),
+('s6chal01', 's6chal05'),
+('s6chal03', 's6chal04'),
+('s6guidonde04', 's6guidonde03'),
+('s6guidonde05', 's6guidonde02'),
+('s2baseinst04', 's2baseinst03'),
+('s4elecacou04', 's2baseinst02'),
+('s5mecaelas03', 's5mecaelas05'),
+('s5thermo02', 's5thermo05'),
+('s5thermo07', 's5thermo04'),
+('s6guidonde04', 's3acouphys03'),
+('s2baseinst04', 's1projacou02'),
+('s5thermo07', 's5thermo05');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `CompResp`
+--
+
+CREATE TABLE IF NOT EXISTS `CompResp` (
+  `CompResp_CompCode` varchar(12) NOT NULL,
+  `CompResp_ProfId` int(2) NOT NULL,
+  KEY `CompResp_CompCode` (`CompResp_CompCode`),
+  KEY `CompResp_ProfId` (`CompResp_ProfId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `CompResp`
+--
+
+INSERT INTO `CompResp` (`CompResp_CompCode`, `CompResp_ProfId`) VALUES
+('s6chal01', 13),
+('s5thermo06', 12),
+('s5thermo05', 12),
+('s5thermo04', 12),
+('s5thermo03', 12),
+('s5mecaelas07', 8),
+('s5thermo02', 12),
+('s5ranmeca05', 7),
+('s5ranmeca04', 7),
+('s5ranmeca02', 8),
+('s5mecaelas07', 10),
+('s5ranmeca01', 8),
+('s5ranmeca02', 7),
+('s5ranmeca03', 7),
+('s7ranmeca03', 15),
+('s7ranmeca02', 15),
+('s7ranmeca01', 15),
+('s6guidonde06', 3),
+('s6guidonde05', 3),
+('s6guidonde04', 3),
+('s6guidonde03', 3),
+('s6guidonde02', 3),
+('s6guidonde01', 3),
+('s2baseinst03', 11),
+('s6elecacou03', 14),
+('s2baseinst02', 11),
+('s6elecacou02', 14),
+('s2baseinst01', 11),
+('s6elecacou01', 14),
+('s6chal05', 13),
+('s6chal04', 13),
+('s6chal03', 13),
+('s2baseinst04', 11),
+('s6chal02', 13),
+('s5mecaelas04', 8),
+('s5thermo07', 12),
+('s5mecaelas06', 8),
+('s5thermo01', 12),
+('s5mecaelas05', 8),
+('s5ranmeca01', 7),
+('s5mecaelas06', 10),
+('s5ranmeca03', 8),
+('s5mecaelas05', 10),
+('s5ranmeca04', 8),
+('s5mecaelas04', 10),
+('s5ranmeca05', 8),
+('s5mecaelas03', 10),
+('s4mecardm05', 10),
+('s4mecardm04', 10),
+('s4mecardm03', 10),
+('s4mecardm02', 10),
+('s4mecardm01', 10),
+('s4elecacou05', 9),
+('s4elecacou04', 9),
+('s4elecacou03', 9),
+('s4elecacou02', 9),
+('s4elecacou01', 9),
+('s3mecarigi08', 7),
+('s3mecarigi07', 7),
+('s3mecarigi06', 7),
+('s3mecarigi05', 7),
+('s3mecarigi04', 7),
+('s3mecarigi03', 8),
+('s3mecarigi02', 7),
+('s3mecarigi01', 7),
+('s3mathnume01', 6),
+('s3acouphys04', 5),
+('s3acouphys03', 5),
+('s3acouphys02', 5),
+('s3acouphys01', 5),
+('s4mecardm01', 8),
+('s2baseinst04', 4),
+('s4mecardm02', 8),
+('s4mecardm03', 8),
+('s2baseinst03', 4),
+('s4mecardm04', 8),
+('s2baseinst02', 4),
+('s4mecardm05', 8),
+('s5mecaelas03', 8),
+('s2baseinst01', 4),
+('s2mecaflui01', 3),
+('s1projacou02', 2),
+('s1projacou01', 2),
+('s1prmael03', 1),
+('s1prmael02', 1),
+('s1prmael01', 1);
 
 -- --------------------------------------------------------
 
@@ -1295,34 +1486,36 @@ INSERT INTO `Competences` (`Semestre`, `CoursId`, `Responsable`, `Code`, `Cx`, `
 --
 
 CREATE TABLE IF NOT EXISTS `Cours` (
-  `Cours_id` int(3) DEFAULT NULL,
+  `Cours_id` int(3) NOT NULL DEFAULT '0',
   `Cours_nom` varchar(50) NOT NULL,
-  `Cours_professeurId` int(3) DEFAULT NULL,
   `Cours_lien` varchar(100) DEFAULT NULL,
-  `Cours_desc` varchar(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `Cours_desc` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`Cours_id`),
+  UNIQUE KEY `Cours_id` (`Cours_id`),
+  KEY `Cours_id_2` (`Cours_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `Cours`
 --
 
-INSERT INTO `Cours` (`Cours_id`, `Cours_nom`, `Cours_professeurId`, `Cours_lien`, `Cours_desc`) VALUES
-(1, 'Projet MathElec', 1, NULL, NULL),
-(2, 'Projet Acoustique', 2, NULL, NULL),
-(3, 'Mécanique des fluides', 3, NULL, NULL),
-(4, 'Bases de l''instrumentation', 4, NULL, NULL),
-(5, 'Acoustique Physique 1', 5, NULL, NULL),
-(6, 'Méthode Numérique', 6, NULL, NULL),
-(7, 'Mécanique du point', 7, NULL, NULL),
-(8, 'Électroacoustique 1', 8, NULL, NULL),
-(9, 'Résistance des matériaux', 9, NULL, NULL),
-(10, 'Élasticité 2', 10, NULL, NULL),
-(11, 'RAN méca', 11, NULL, NULL),
-(12, 'Thermodynamique', 12, NULL, NULL),
-(13, 'Thermique', 13, NULL, NULL),
-(14, 'Électroacoustique 2', 14, NULL, NULL),
-(15, 'Guide d''ondes', 15, NULL, NULL),
-(16, 'RAN mécanique', 16, NULL, NULL);
+INSERT INTO `Cours` (`Cours_id`, `Cours_nom`, `Cours_lien`, `Cours_desc`) VALUES
+(1, 'Projet MathElec', NULL, NULL),
+(2, 'Projet Acoustique', NULL, NULL),
+(3, 'Mécanique des fluides', NULL, NULL),
+(4, 'Bases de l''instrumentation', NULL, NULL),
+(5, 'Acoustique Physique 1', NULL, NULL),
+(6, 'Méthode Numérique', NULL, NULL),
+(7, 'Mécanique du point', NULL, NULL),
+(8, 'Électroacoustique 1', NULL, NULL),
+(9, 'Résistance des matériaux', NULL, NULL),
+(10, 'Élasticité 2', NULL, NULL),
+(11, 'RAN méca', NULL, NULL),
+(12, 'Thermodynamique', NULL, NULL),
+(13, 'Thermique', NULL, NULL),
+(14, 'Électroacoustique 2', NULL, NULL),
+(15, 'Guide d''ondes', NULL, NULL),
+(16, 'RAN mécanique', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1332,8 +1525,10 @@ INSERT INTO `Cours` (`Cours_id`, `Cours_nom`, `Cours_professeurId`, `Cours_lien`
 
 CREATE TABLE IF NOT EXISTS `CoursEtud` (
   `CoursEtud_CoursId` int(3) DEFAULT NULL,
-  `CoursEtud_EtudiantId` int(8) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `CoursEtud_EtudiantId` int(8) NOT NULL,
+  KEY `CoursEtud_CoursId` (`CoursEtud_CoursId`),
+  KEY `CoursEtud_EtudiantId` (`CoursEtud_EtudiantId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `CoursEtud`
@@ -2475,6 +2670,46 @@ INSERT INTO `CoursEtud` (`CoursEtud_CoursId`, `CoursEtud_EtudiantId`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `CoursProf`
+--
+
+CREATE TABLE IF NOT EXISTS `CoursProf` (
+  `CoursProf_CoursId` int(11) NOT NULL,
+  `CoursProf_ProfId` int(11) NOT NULL,
+  KEY `CoursProf_CoursId` (`CoursProf_CoursId`),
+  KEY `CoursProf_ProfId` (`CoursProf_ProfId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `CoursProf`
+--
+
+INSERT INTO `CoursProf` (`CoursProf_CoursId`, `CoursProf_ProfId`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 9),
+(9, 8),
+(10, 10),
+(11, 7),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(4, 11),
+(7, 8),
+(11, 8),
+(10, 8),
+(8, 8),
+(15, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `Etudiants`
 --
 
@@ -2484,256 +2719,260 @@ CREATE TABLE IF NOT EXISTS `Etudiants` (
   `prenom` varchar(35) NOT NULL,
   `annee` varchar(2) NOT NULL,
   `parcours` varchar(10) DEFAULT NULL,
-  `mel` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `domaine` varchar(7) NOT NULL DEFAULT 'univ',
+  `mel` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`identifiant`),
+  UNIQUE KEY `identifiant` (`identifiant`),
+  KEY `identifiant_2` (`identifiant`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `Etudiants`
 --
 
-INSERT INTO `Etudiants` (`identifiant`, `nom`, `prenom`, `annee`, `parcours`, `mel`) VALUES
-(20154790, 'ABBOUR', 'ASMAA', 'L3', 'meca', 'Asmaa.Abbour.Etu@univ-lemans.fr'),
-(20155106, 'AGAISA', 'FREDERIC', 'L1', '', 'Frederic.Agaisa.Etu@univ-lemans.fr'),
-(20155455, 'AIT MERRI', 'BOUCHRA', 'L3', 'acou', 'Bouchra.Ait_Merri.Etu@univ-lemans.fr'),
-(20140676, 'ALEXANDRE', 'LOÏC', 'L2', '', 'Loic.Alexandre.Etu@univ-lemans.fr'),
-(20103057, 'ALKASSOUM KHALID', 'NADIA', 'L1', '', 'Nadia.Alkassoum_Khalid.Etu@univ-lemans.fr'),
-(20145633, 'ALRIC', 'ANTOINE', 'L1', '', 'Antoine.Alric.Etu@univ-lemans.fr'),
-(20144909, 'BARDOUX', 'MATTHIEU', 'L1', '', 'Matthieu.Bardoux.Etu@univ-lemans.fr'),
-(20156065, 'BELLEUS', 'HATTMANN', 'M2', '', 'Hattmann.Belleus.Etu@univ-lemans.fr'),
-(20122898, 'BENEDETTI', 'LAURETTE', 'M2', '', 'Laurette.Benedetti.Etu@univ-lemans.fr'),
-(20101825, 'BENOUARET', 'MEHDI', 'L1', '', 'Mehdi.Benouaret.Etu@univ-lemans.fr'),
-(20141580, 'BERARD', 'WILLIAM', 'L1', '', 'William.Berard.Etu@univ-lemans.fr'),
-(20154686, 'BERGEON', 'PABLO', 'L2', '', 'Pablo.Bergeon.Etu@univ-lemans.fr'),
-(20152695, 'BERNARD', 'LOÏC', 'L1', '', 'Loic.Bernard.Etu@univ-lemans.fr'),
-(20121892, 'BERTET', 'THÉO', 'L3', 'acou', 'Theo.Bertet.Etu@univ-lemans.fr'),
-(20130493, 'BESNOIST', 'MARCELIN', 'L3', 'acou', 'Marcelin.Besnoist.Etu@univ-lemans.fr'),
-(20123023, 'BIGOT', 'BASTIEN', 'M1', '', 'Bastien.Bigot.Etu@univ-lemans.fr'),
-(20150189, 'BILLAUD', 'LORIS', 'M1', '', 'Loris.Billaud.Etu@univ-lemans.fr'),
-(20123435, 'BLANQUART', 'ANTHONY', 'M1', '', 'Anthony.Blanquart.Etu@univ-lemans.fr'),
-(20152174, 'BLUTEAU', 'LÉA', 'L2', '', 'Lea.Bluteau.Etu@univ-lemans.fr'),
-(20154137, 'BOISSINOT', 'MAEL', 'L3', 'acou', 'Mael.Boissinot.Etu@univ-lemans.fr'),
-(20151803, 'BOUQUET', 'TRISTAN', 'L1', '', 'Tristan.Bouquet.Etu@univ-lemans.fr'),
-(20150678, 'BOURIN', 'VICTOR', 'M1', '', 'Victor.Bourin.Etu@univ-lemans.fr'),
-(20150933, 'BRINON', 'BAPTISTE', 'L1', '', 'Baptiste.Brinon.Etu@univ-lemans.fr'),
-(20125584, 'BROCARD', 'ANDREW', 'L3', 'acou', 'Andrew.Brocard.Etu@univ-lemans.fr'),
-(20156053, 'BROCHERIEUX', 'THIBAULT', 'L1', '', 'Thibault.Brocherieux.Etu@univ-lemans.fr'),
-(20131308, 'BROU', 'N''GOAN', 'L3', 'meca', 'NGoan.Brou.Etu@univ-lemans.fr'),
-(20143885, 'BROUSSIER', 'BAPTISTE', 'M1', '', 'Baptiste.Broussier.Etu@univ-lemans.fr'),
-(20143987, 'BUISSON', 'JONAS', 'L3', 'acou', 'Jonas.Buisson.Etu@univ-lemans.fr'),
-(20152709, 'BUTLER', 'OSCAR', 'L1', '', 'Oscar.Butler.Etu@univ-lemans.fr'),
-(20111933, 'CAMI', 'ÉLINA', 'M1', '', 'Elina.Cami.Etu@univ-lemans.fr'),
-(20144910, 'CAO', 'BOXIN', 'L1', '', 'Boxin.Cao.Etu@univ-lemans.fr'),
-(20111292, 'CARRERO', 'RÉMY', 'M2', '', 'remy.Carrero.Etu@univ-lemans.fr'),
-(20152200, 'CATHELIN', 'VIVIEN', 'L3', 'acou', 'Vivien.Cathelin.Etu@univ-lemans.fr'),
-(20122370, 'CAVALIERI', 'THÉO', 'M1', '', 'Theo.Cavalieri.Etu@univ-lemans.fr'),
-(20141226, 'CERRI', 'LUCAS', 'L2', '', 'Lucas.Cerri.Etu@univ-lemans.fr'),
-(20140498, 'CHAMPION', 'TANGUY', 'L2', '', 'Tanguy.Champion.Etu@univ-lemans.fr'),
-(20152456, 'CHAPUY', 'MATTÉO', 'L3', 'acou', 'Matteo.Chapuy.Etu@univ-lemans.fr'),
-(20154251, 'CHAUVEAU', 'NICOLAS', 'L2', '', 'Nicolas.Chauveau.Etu@univ-lemans.fr'),
-(20145561, 'CHEN', 'XI', 'L3', 'meca', 'Xi_Chen.Etu@univ-lemans.fr'),
-(20125716, 'CHEN', 'MING', 'M1', '', 'Ming.Chen.Etu@univ-lemans.fr'),
-(20131381, 'CHEVALIER', 'LOUIS', 'L3', 'acou', 'Louis.Chevalier.Etu@univ-lemans.fr'),
-(20141738, 'CHUPIN', 'ADÈLE', 'L2', '', 'Adele.Chupin.Etu@univ-lemans.fr'),
-(20081766, 'CIRON', 'FABIEN', 'L1', '', 'Fabien.Ciron.Etu@univ-lemans.fr'),
-(20121300, 'COHEN', 'MEHDI', 'L1', '', 'Mehdi.Cohen.Etu@univ-lemans.fr'),
-(20151267, 'COMBASTEIX', 'BENOIT', 'L1', '', 'Benoit.Combasteix.Etu@univ-lemans.fr'),
-(20133458, 'CONTOUR', 'BAPTISTE', 'L3', 'acou', 'Baptiste.Contour.Etu@univ-lemans.fr'),
-(20151050, 'CORMIER', 'PIERRE-LOUIS', 'L1', '', 'Pierre-Louis.Cormier.Etu@univ-lemans.fr'),
-(20120427, 'COR1', 'GWENIVIG', 'L3', 'acou', 'Gwenivig.Cor1.Etu@univ-lemans.fr'),
-(20152561, 'COTTAIS', 'ANTOINE', 'L1', '', 'Antoine.Cottais.Etu@univ-lemans.fr'),
-(20154882, 'COULON', 'SWANN', 'L1', '', 'Swann.Coulon.Etu@univ-lemans.fr'),
-(20096468, 'CUI', 'BOSHU', 'L3', 'acou', 'Boshu.Cui.Etu@univ-lemans.fr'),
-(20153137, 'DE MEYER', 'SACHA', 'L1', '', 'Sacha.de_Meyer.Etu@univ-lemans.fr'),
-(20152178, 'DEBIAIS', 'CORENTIN', 'L2', '', 'Corentin.Debiais.Etu@univ-lemans.fr'),
-(20130865, 'DEBONNE', 'VALENTIN', 'L1', '', 'Valentin.Debonne.Etu@univ-lemans.fr'),
-(20144278, 'DECUP', 'FÉLIX', 'L2', '', 'Felix.Decup.Etu@univ-lemans.fr'),
-(20112207, 'DEFONTAINE', 'JEAN-SULIAC', 'M2', '', 'Jean-Suliac.Defontaine.Etu@univ-lemans.fr'),
-(20143665, 'DELALANDE', 'RONAN', 'M1', '', 'ronan.Delalande.Etu@univ-lemans.fr'),
-(20124049, 'DESCHAMPS', 'VIRGIL', 'L3', 'acou', 'Virgil.Deschamps.Etu@univ-lemans.fr'),
-(20144319, 'DESNOS', 'GUIRAL', 'M2', '', 'Guiral.Desnos.Etu@univ-lemans.fr'),
-(20141328, 'DESNOS', 'SIMON', 'L1', '', 'Simon.Desnos.Etu@univ-lemans.fr'),
-(20155652, 'DESPRES', 'CLÉMENT', 'L1', '', 'Clement.Despres.Etu@univ-lemans.fr'),
-(20150029, 'DI CARLO', 'BENJAMIN', 'L1', '', 'Benjamin.Di_Carlo.Etu@univ-lemans.fr'),
-(20130551, 'DIABATE', 'SAMUEL', 'L3', 'acou', 'Samuel.Diabate.Etu@univ-lemans.fr'),
-(20145024, 'DIALLO', 'BAYE ELY', 'L3', 'meca', 'Baye_Ely.Diallo.Etu@univ-lemans.fr'),
-(20102474, 'DIALLO', 'OUMAR', 'L3', 'acou', 'Oumar.Diallo.Etu@univ-lemans.fr'),
-(20143058, 'DINGA', 'ANDY', 'L1', '', 'Andy.Dinga.Etu@univ-lemans.fr'),
-(20110601, 'DINSENMEYER', 'ALICE', 'M2', '', 'Alice.Dinsenmeyer.Etu@univ-lemans.fr'),
-(20125872, 'DUBOSQ', 'THIBAULT', 'L3', 'meca', 'Thibault.Dubosq.Etu@univ-lemans.fr'),
-(20142083, 'DUROY', 'ANNE-LISE', 'L2', '', 'Anne-Lise.Duroy.Etu@univ-lemans.fr'),
-(20134009, 'DUSSIN-RICHARD', 'FANNY', 'L3', 'meca', 'Fanny.Dussin-richard.Etu@univ-lemans.fr'),
-(20154394, 'EL OMARI', 'SAÏD', 'L3', 'acou', 'Said.el_Omari.Etu@univ-lemans.fr'),
-(20144089, 'EL SAWAF', 'OSSEN', 'M2', '', 'Ossen.el_Sawaf.Etu@univ-lemans.fr'),
-(20113067, 'ELISABETH', 'FRANCK', 'M1', '', 'Franck.Elisabeth.Etu@univ-lemans.fr'),
-(20140475, 'FABRE', 'FRANÇOIS', 'L2', '', 'Francois.Fabre.Etu@univ-lemans.fr'),
-(20115289, 'FEI', 'LINYU', 'M1', '', 'Linyu.Fei.Etu@univ-lemans.fr'),
-(20151895, 'FOUCHER', 'ROMAIN', 'L1', '', 'romain.Foucher.Etu@univ-lemans.fr'),
-(20154991, 'FRESLON-LE FLOC''H', 'FIGARO', 'L2', '', 'Figaro.Freslon-Le_FlocH.Etu@univ-lemans.fr'),
-(20112277, 'GABORIT', 'MATHIEU', 'M2', '', 'Mathieu.Gaborit.Etu@univ-lemans.fr'),
-(20143239, 'GASTINEAU', 'THOMAS', 'L3', 'acou', 'Thomas.Gastineau.Etu@univ-lemans.fr'),
-(20153796, 'GAUDET', 'CLOTILDE', 'L1', '', 'Clotilde.Gaudet.Etu@univ-lemans.fr'),
-(20142915, 'GAURAN', 'THIBAULT', 'L3', 'acou', 'Thibault.Gauran.Etu@univ-lemans.fr'),
-(20152457, 'GEDOUIN', 'EWEN', 'L3', 'acou', 'Ewen.Gedouin.Etu@univ-lemans.fr'),
-(20142870, 'GENOUEL', 'FLORIAN', 'L1', '', 'Florian_Genouel.Etu@univ-lemans.fr'),
-(20142774, 'GHISTELINCK', 'YANN', 'L2', '', 'Yann.Ghistelinck.Etu@univ-lemans.fr'),
-(20150101, 'GOASDOUÉ', 'RONAN', 'L1', '', 'ronan.Goasdoue.Etu@univ-lemans.fr'),
-(20110749, 'GOMIS', 'DJESONE', 'L3', 'acou', 'Djesone.Gomis.Etu@univ-lemans.fr'),
-(20153031, 'GOSTEAU', 'NINA', 'L3', 'acou', 'Nina.Gosteau.Etu@univ-lemans.fr'),
-(20151274, 'GRALL', 'FLORIAN', 'L1', '', 'Florian.Grall.Etu@univ-lemans.fr'),
-(20100759, 'GRICH', 'LAHCEN', 'M2', '', 'Lahcen.Grich.Etu@univ-lemans.fr'),
-(20151177, 'GUÉHO', 'LÉNAÏG', 'L1', '', 'Lenaig.Gueho.Etu@univ-lemans.fr'),
-(20133964, 'GUIBARD', 'ARTHUR', 'M2', '', 'Arthur.Guibard.Etu@univ-lemans.fr'),
-(20111711, 'GUILHEM', 'ROMAIN', 'M1', '', 'romain.Guilhem.Etu@univ-lemans.fr'),
-(20155443, 'GUIMIMI', 'AISSAM', 'L1', '', 'Aissam.Guimimi.Etu@univ-lemans.fr'),
-(20144533, 'HAJJAJI', 'M''HAMED', 'L3', 'meca', 'MHamed.Hajjaji.Etu@univ-lemans.fr'),
-(20152085, 'HALLOUIN', 'NATHAN', 'L1', '', 'Nathan.Hallouin.Etu@univ-lemans.fr'),
-(20154796, 'HAMEAU', 'LOUIS', 'L1', '', 'Louis.Hameau.Etu@univ-lemans.fr'),
-(20141528, 'HAMONET', 'VICTOR', 'L2', '', 'Victor.Hamonet.Etu@univ-lemans.fr'),
-(20153383, 'HASSANI', 'KADER', 'L1', '', 'Kader.Hassani.Etu@univ-lemans.fr'),
-(20140711, 'HAVARD', 'ALEXANDRE', 'L2', '', 'Alexandre.Havard.Etu@univ-lemans.fr'),
-(20153711, 'HEBERT', 'JEREMY', 'L1', '', 'Jeremy_Hebert.Etu@univ-lemans.fr'),
-(20153856, 'HERVE', 'LUCAS', 'L1', '', 'Lucas.Herve.Etu@univ-lemans.fr'),
-(20112175, 'HIE', 'FÉLIX', 'M2', '', 'Felix.Hie.Etu@univ-lemans.fr'),
-(20112473, 'IGABE', 'CHRISTIAN', 'L3', 'acou', 'Christian.Igabe.Etu@univ-lemans.fr'),
-(20151094, 'IZAL', 'AYMERIC', 'L1', '', 'Aymeric.Izal.Etu@univ-lemans.fr'),
-(20151917, 'IZAUTE', 'BENOÏT', 'L1', '', 'Benoit.Izaute.Etu@univ-lemans.fr'),
-(20142274, 'JAMIER', 'GUILLAUME', 'L2', '', 'Guillaume.Jamier.Etu@univ-lemans.fr'),
-(20141015, 'JOLLIET', 'CORENTIN', 'L1', '', 'Corentin.Jolliet.Etu@univ-lemans.fr'),
-(20154186, 'JOLY-VUILLEMIN', 'LEOPOLD', 'L1', '', 'Leopold.Joly-Vuillemin.Etu@univ-lemans.fr'),
-(20142339, 'JULIENNE', 'THIBAUT', 'L2', '', 'Thibaut.Julienne.Etu@univ-lemans.fr'),
-(20141991, 'JULLIEN', 'ROMAIN', 'L1', '', 'romain.Jullien.Etu@univ-lemans.fr'),
-(20122345, 'KAYSER', 'BILL', 'M1', '', 'Bill.Kayser.Etu@univ-lemans.fr'),
-(20154250, 'KIMRI', 'ISMAEL', 'L3', 'meca', 'Ismael.Kimri.Etu@univ-lemans.fr'),
-(20143416, 'LABITRIE', 'LOUIS', 'L2', '', 'Louis.Labitrie.Etu@univ-lemans.fr'),
-(20110583, 'LAMBERT', 'JULIEN', 'M2', '', 'Julien_Lambert.Etu@univ-lemans.fr'),
-(20144046, 'LAMOTHE', 'NATHALIE', 'L3', 'acou', 'Nathalie.Lamothe.Etu@univ-lemans.fr'),
-(20096474, 'LAN', 'CHUANJUN', 'M2', '', 'Chuanjun.Lan.Etu@univ-lemans.fr'),
-(20152346, 'LARDY', 'ANTHONY', 'L1', '', 'Anthony.Lardy.Etu@univ-lemans.fr'),
-(20153511, 'LARMIGNAT', 'THOMAS', 'L1', '', 'Thomas.Larmignat.Etu@univ-lemans.fr'),
-(20152535, 'LE BRUN', 'TERENCE', 'L1', '', 'Terence.le_Brun.Etu@univ-lemans.fr'),
-(20130755, 'LE DEUNF', 'MERYEM', 'L3', 'acou', 'Meryem.le_Deunf.Etu@univ-lemans.fr'),
-(20121602, 'LE GUENEDAL', 'VINCENT', 'L3', 'acou', 'Vincent.le_Guenedal.Etu@univ-lemans.fr'),
-(20113098, 'LE MOIGN', 'GOULVEN', 'M1', '', 'Goulven.le_Moign.Etu@univ-lemans.fr'),
-(20152303, 'LEBERT', 'KENNY', 'L1', '', 'Kenny.Lebert.Etu@univ-lemans.fr'),
-(20153071, 'LEBOURDAIS', 'MARTIN', 'L1', '', 'Martin.Lebourdais.Etu@univ-lemans.fr'),
-(20152939, 'LECA', 'KEVIN', 'L1', '', 'Kevin.Leca.Etu@univ-lemans.fr'),
-(20143621, 'LECHAT', 'BASTIEN', 'L2', '', 'Bastien.Lechat.Etu@univ-lemans.fr'),
-(20112653, 'LECHAT', 'THOMAS', 'M2', '', 'Thomas.Lechat.Etu@univ-lemans.fr'),
-(20123064, 'LENG', 'JULIEN', 'M2', '', 'Julien.Leng.Etu@univ-lemans.fr'),
-(20150944, 'LENGAGNE', 'ARNAUD', 'L2', '', 'Arnaud.Lengagne.Etu@univ-lemans.fr'),
-(20120288, 'LEROUX', 'GAËL', 'L3', 'acou', 'Gael.Leroux.Etu@univ-lemans.fr'),
-(20152289, 'LETESSIER', 'HADRIEN', 'L1', '', 'Hadrien.Letessier.Etu@univ-lemans.fr'),
-(20145466, 'LI', 'JIESEN', 'L3', 'meca', 'Jiesen.Li.Etu@univ-lemans.fr'),
-(20146510, 'LI', 'JINZHAO', 'L3', 'meca', 'Jinzhao.Li.Etu@univ-lemans.fr'),
-(20145470, 'LI', 'YUHENG', 'L3', 'meca', 'Yuheng.Li.Etu@univ-lemans.fr'),
-(20114411, 'LIU', 'HONGYU', 'M1', '', 'Hongyu.Liu.Etu@univ-lemans.fr'),
-(20126070, 'LIU', 'JUNJIANG', 'L3', 'acou', 'Jun.Liu.Etu@univ-lemans.fr'),
-(20136291, 'LIU', 'YICHENG', 'L1', '', 'Yicheng.Liu.Etu@univ-lemans.fr'),
-(20145616, 'LOISON', 'THÉO', 'L1', '', 'Theo.Loison.Etu@univ-lemans.fr'),
-(20133476, 'LONG', 'DUC', 'L2', '', 'Duc.Long.Etu@univ-lemans.fr'),
-(20155527, 'LUNAIN', 'DAVID', 'M2', '', 'David.Lunain.Etu@univ-lemans.fr'),
-(20135478, 'MAACHOU', 'YASSINE', 'L2', '', 'Yassine.Maachou.Etu@univ-lemans.fr'),
-(20145237, 'MAAOUI', 'MEHDI', 'L3', 'meca', 'Mehdi.Maaoui.Etu@univ-lemans.fr'),
-(20110743, 'MACQ', 'HIPPOLYTE', 'M1', '', 'Hippolyte.Macq.Etu@univ-lemans.fr'),
-(20133623, 'MADIGOU', 'FLORIAN', 'M1', '', 'Florian.Madigou.Etu@univ-lemans.fr'),
-(20155362, 'MAIRE DU POSET', 'ADRIEN', 'L2', '', 'Adrien.Maire_du_Poset.Etu@univ-lemans.fr'),
-(20151509, 'MALIGE', 'JULIEN', 'L1', '', 'Julien.Malige.Etu@univ-lemans.fr'),
-(20121059, 'MALLEJAC', 'MATTHIEU', 'M1', '', 'Matthieu.Mallejac.Etu@univ-lemans.fr'),
-(20124881, 'MANY AKA''A', 'PAUL DESCHANEL', 'M1', '', 'Paul_Deschanel.Many_AkaA.Etu@univ-lemans.fr'),
-(20152043, 'MARKARIAN', 'MAXIME', 'L1', '', 'Maxime.Markarian.Etu@univ-lemans.fr'),
-(20140210, 'MARTINEAU', 'CHARLES-ALBAN', 'L1', '', 'Charles-Alban.Martineau.Etu@univ-lemans.fr'),
-(20152288, 'MARTINEZ Y ROYO', 'MAEVA', 'M2', '', 'Maeva.Martinez_Y_royo.Etu@univ-lemans.fr'),
-(20152184, 'MASSAL', 'OLIVIER', 'L1', '', 'Olivier.Massal.Etu@univ-lemans.fr'),
-(20094668, 'MASSOSSA TELO', 'GAUDREY', 'M1', '', 'Gaudrey.Massossa_Telo.Etu@univ-lemans.fr'),
-(20124211, 'MASTORIS', 'SPYRIDON', 'L3', 'acou', 'Spyridon.Mastoris.Etu@univ-lemans.fr'),
-(20131941, 'MATTELIN', 'RÉMI', 'L2', '', 'remi.Mattelin.Etu@univ-lemans.fr'),
-(20111728, 'MAURY', 'GAËTAN', 'M2', '', 'Gaetan.Maury.Etu@univ-lemans.fr'),
-(20154052, 'MAUTE', 'MAXIME', 'L3', 'meca', 'Maxime.Maute.Etu@univ-lemans.fr'),
-(20124362, 'MAXAUD', 'AGATHE', 'L2', '', 'Agathe.Maxaud.Etu@univ-lemans.fr'),
-(20154869, 'MAYOUMA', 'ARDIVINE', 'L1', '', 'Ardivine.Mayouma.Etu@univ-lemans.fr'),
-(20155755, 'MBOUNGOU NGOTH', 'ESPOIR', 'L1', '', 'Espoir.Mboungou_Ngoth.Etu@univ-lemans.fr'),
-(20130359, 'MERRIEN', 'TONY', 'L3', 'acou', 'Tony.Merrien.Etu@univ-lemans.fr'),
-(20154613, 'MESNAGER', 'MATTHIEU', 'L1', '', 'Matthieu.Mesnager.Etu@univ-lemans.fr'),
-(20104004, 'MESSAGIER', 'HOUSSEM-EDDINE', 'L2', '', 'Houssem-Eddine.Messagier.Etu@univ-lemans.fr'),
-(20150468, 'MESSAGIER', 'OUASSIM', 'L1', '', 'Ouassim.Messagier.Etu@univ-lemans.fr'),
-(20133341, 'METEYER', 'ERWAN', 'L3', 'acou', 'Erwan.Meteyer.Etu@univ-lemans.fr'),
-(20143381, 'MICHAUD', 'FÉLIX', 'L2', '', 'Felix.Michaud.Etu@univ-lemans.fr'),
-(20153750, 'MICHEL', 'NILS', 'L1', '', 'Nils.Michel.Etu@univ-lemans.fr'),
-(20131589, 'MICHELON', 'FLORIAN', 'L2', '', 'Florian.Michelon.Etu@univ-lemans.fr'),
-(20143878, 'MONNIER', 'JEAN', 'M1', '', 'Jean.Monnier.Etu@univ-lemans.fr'),
-(20093726, 'MONNY DAIDO ESSAKA', 'DANIEL', 'M2', '', 'Daniel.Monny_Daido_Essaka.Etu@univ-lemans.fr'),
-(20112192, 'MORGANT', 'VICTOR', 'L1', '', 'Victor.Morgant.Etu@univ-lemans.fr'),
-(20151938, 'MOTTIER', 'EMERIC', 'L1', '', 'Emeric.Mottier.Etu@univ-lemans.fr'),
-(20133800, 'NGATCHOU-DOKOSSI', 'JUNIOR', 'L1', '', 'Junior.Ngatchou-Dokossi.Etu@univ-lemans.fr'),
-(20155363, 'NIEZ', 'BAPTISTE', 'L1', '', 'Baptiste.Niez.Etu@univ-lemans.fr'),
-(20125720, 'NIU', 'BOCHUAN', 'M1', '', 'Bochuan.Niu.Etu@univ-lemans.fr'),
-(20153924, 'NOUVELIERE', 'BENJAMIN', 'L1', '', 'Benjamin.Nouveliere.Etu@univ-lemans.fr'),
-(20151070, 'OKTAY', 'SAMED', 'L1', '', 'Samed.Oktay.Etu@univ-lemans.fr'),
-(20133031, 'OTMANI', 'AMINE', 'L2', '', 'Amine.Otmani.Etu@univ-lemans.fr'),
-(20155337, 'OUALET', 'NATHAN', 'L1', '', 'Nathan.Oualet.Etu@univ-lemans.fr'),
-(20131594, 'OUSMANOV', 'SAID MAGOMED', 'L1', '', 'Said.Ousmanov.Etu@univ-lemans.fr'),
-(20144037, 'OVIEDO SEGURA', 'DANIEL', 'L1', '', 'Daniel.Oviedo_Segura.Etu@univ-lemans.fr'),
-(20132870, 'PANCHER', 'PIERRE-LOUIS', 'L3', 'acou', 'Pierre-Louis.Pancher.Etu@univ-lemans.fr'),
-(20111455, 'PAPET', 'LÉO', 'M2', '', 'Leo.Papet.Etu@univ-lemans.fr'),
-(20154508, 'PASTOURET', 'GILLES', 'L1', '', 'Gilles.Pastouret.Etu@univ-lemans.fr'),
-(20143880, 'PAVLISTA', 'JUSTIN', 'L3', 'acou', 'Justin.Pavlista.Etu@univ-lemans.fr'),
-(20150789, 'PELLOIN', 'VALENTIN', 'L1', '', 'Valentin.Pelloin.Etu@univ-lemans.fr'),
-(20153804, 'PRESOTTO', 'HUGO', 'L1', '', 'Hugo.Presotto.Etu@univ-lemans.fr'),
-(20101803, 'PROD''HOMME', 'ARTHUR', 'L1', '', 'Arthur.ProdHomme.Etu@univ-lemans.fr'),
-(20105786, 'QIAN', 'CHENG', 'M2', '', 'Cheng.Qian.Etu@univ-lemans.fr'),
-(20146535, 'QU', 'SHILIN', 'L2', '', 'Shilin.Qu.Etu@univ-lemans.fr'),
-(20150086, 'RAHAL', 'CÉDRIC', 'L1', '', 'Cedric.rahal.Etu@univ-lemans.fr'),
-(20151170, 'RAKOTOVAZAHA', 'TIMOTHY', 'L1', '', 'Timothy.rakotovazaha.Etu@univ-lemans.fr'),
-(20150461, 'RAPPIN', 'CLÉMENT', 'L1', '', 'Clement.rappin.Etu@univ-lemans.fr'),
-(20144220, 'RASSART', 'STEVEN', 'M2', '', 'Steven.rassart.Etu@univ-lemans.fr'),
-(20152451, 'REAN-CONTO', 'LORENZO', 'L1', '', 'Lorenzo.rean-Conto.Etu@univ-lemans.fr'),
-(20110399, 'REMOND', 'ANTOINE', 'M1', '', 'Antoine.remond.Etu@univ-lemans.fr'),
-(20131945, 'ROMMÉ', 'ALEXIS', 'L2', '', 'Alexis.romme.Etu@univ-lemans.fr'),
-(20133192, 'RYLIAKOVA', 'MARIIA', 'L1', '', 'Mariia.ryliakova.Etu@univ-lemans.fr'),
-(20141595, 'SADONNET', 'ALEXANDRE', 'L1', '', 'Alexandre.Sadonnet.Etu@univ-lemans.fr'),
-(20152046, 'SANTINO', 'OCTAVE', 'M2', '', 'Octave.Cartier-Santino.Etu@univ-lemans.fr'),
-(20123792, 'SAURON', 'NATHAN', 'M2', '', 'Nathan.Sauron.Etu@univ-lemans.fr'),
-(20151611, 'SAVERNA', 'CHARLOTTE', 'M1', '', 'Charlotte.Saverna.Etu@univ-lemans.fr'),
-(20112881, 'SBIY', 'ADIL', 'M1', '', 'Adil.Sbiy.Etu@univ-lemans.fr'),
-(20150340, 'SEBILLE', 'FLORIAN', 'L1', '', 'Florian.Sebille.Etu@univ-lemans.fr'),
-(20154122, 'SEHBANI', 'HAYAT', 'L3', 'meca', 'Hayat.Sehbani.Etu@univ-lemans.fr'),
-(20132942, 'SIMÉONI', 'HERMES', 'L2', '', 'Hermes.Simeoni.Etu@univ-lemans.fr'),
-(20153914, 'SIVADON', 'AUDREY', 'L2', '', 'Audrey.Sivadon.Etu@univ-lemans.fr'),
-(20154650, 'SOMVILLE', 'ALEXANDRE', 'L1', '', 'Alexandre.Somville.Etu@univ-lemans.fr'),
-(20124934, 'TADONTSA TEKEU', 'BORIS ACHILLE', 'M1', '', 'Boris_Achille.Tadontsa_Tekeu.Etu@univ-lemans.fr'),
-(20146474, 'TANG', 'YU KE', 'L1', '', 'Yu_Ke.Tang.Etu@univ-lemans.fr'),
-(20135724, 'TCHOUBOUM A GAM', 'EVELYNE GHISLAINE', 'M2', '', 'Evelyne.Tchouboum_A_Gam.Etu@univ-lemans.fr'),
-(20142908, 'TERRIEN', 'ALEXANDRE', 'L1', '', 'Alexandre.Terrien.Etu@univ-lemans.fr'),
-(20112263, 'TERROIR', 'ARTHUR', 'L3', 'acou', 'Arthur.Terroir.Etu@univ-lemans.fr'),
-(20143364, 'TESTARD', 'STEVEN', 'L1', '', 'Steven.Testard.Etu@univ-lemans.fr'),
-(20146292, 'TEYSSIER', 'TITOUAN', 'L1', '', 'Titouan.Teyssier.Etu@univ-lemans.fr'),
-(20145266, 'THONY', 'SÉBASTIEN', 'L2', '', 'Sebastien.Thony.Etu@univ-lemans.fr'),
-(20135555, 'THRÉARD', 'THÉO', 'L3', 'acou', 'Theo.Threard.Etu@univ-lemans.fr'),
-(20155360, 'TOIBIBOU', 'ABDALLAH', 'L1', '', 'Abdallah.Toibibou.Etu@univ-lemans.fr'),
-(20115588, 'TONG', 'HAOYANG', 'M2', '', 'Haoyang.Tong.Etu@univ-lemans.fr'),
-(20150409, 'TOUSSAINT', 'HUGO', 'L1', '', 'Hugo.Toussaint.Etu@univ-lemans.fr'),
-(20151628, 'TROTTIER', 'ARTHUR', 'L1', '', 'Arthur.Trottier.Etu@univ-lemans.fr'),
-(20144297, 'VAN BAARSEL', 'TOBIAS', 'M2', '', 'Tobias.Van_Baarsel.Etu@univ-lemans.fr'),
-(20151890, 'VERWICHT', 'LUCAS', 'L1', '', 'Lucas.Verwicht.Etu@univ-lemans.fr'),
-(97002413, 'VIVION', 'AURELIEN', 'M2', '', 'Aurelien.Vivion.Etu@univ-lemans.fr'),
-(20146007, 'WADJI TCHUISSI', 'ARMAND BRICE', 'M1', '', 'Armand_Brice.Wadji_Tchuissi.Etu@univ-lemans.fr'),
-(20125717, 'WANG', 'AO', 'M1', '', 'Ao.Wang.Etu@univ-lemans.fr'),
-(20134885, 'WU', 'SIMIAO', 'L3', 'acou', 'Simiao.Wu.Etu@univ-lemans.fr'),
-(20126067, 'XIA', 'YIN', 'L3', 'acou', 'Yin.Xia.Etu@univ-lemans.fr'),
-(20146514, 'XUE', 'MIN', 'L3', 'meca', 'Min.Xue.Etu@univ-lemans.fr'),
-(20155026, 'YAHIAOUI', 'KAHINA', 'L1', '', 'Kahina.Yahiaoui.Etu@univ-lemans.fr'),
-(20125707, 'YAO', 'JIANI', 'L3', 'acou', 'Jiani.Yao.Etu@univ-lemans.fr'),
-(20146455, 'YAO', 'WENCONG', 'L1', '', 'Wencong.Yao.Etu@univ-lemans.fr'),
-(20096066, 'YODJOUEN', 'CEDRIC ULRICH', 'M1', '', 'Cedric_Ulrich.Yodjouen.Etu@univ-lemans.fr'),
-(20124951, 'YONGA NDJOMI', 'EDDIE PACHELIE', 'M1', '', 'Eddie_Pachelie.Yonga_Ndjomi.Etu@univ-lemans.fr'),
-(20094452, 'YU', 'XIAOYANG', 'M2', '', 'Xiaoyang.Yu.Etu@univ-lemans.fr'),
-(20105931, 'YUAN', 'JUNCHAO', 'M1', '', 'Junchao.Yuan.Etu@univ-lemans.fr'),
-(20130318, 'ZHANG', 'FAN', 'L1', '', 'Zhang.Fan.Etu@univ-lemans.fr'),
-(20105790, 'ZHANG', 'GUISONG', 'M1', '', 'Guisong.Zhang.Etu@univ-lemans.fr'),
-(20115595, 'ZHANG', 'LIUJIAN', 'M2', '', 'Liujian.Zhang.Etu@univ-lemans.fr'),
-(20105792, 'ZHANG', 'NAN', 'M1', '', 'Nan.Zhang.Etu@univ-lemans.fr'),
-(20136267, 'ZHANG', 'NIANLU', 'L2', '', 'Nianlu.Zhang.Etu@univ-lemans.fr'),
-(20136288, 'ZHOU', 'LITAO', 'L3', 'meca', 'Litao.Zhou.Etu@univ-lemans.fr');
+INSERT INTO `Etudiants` (`identifiant`, `nom`, `prenom`, `annee`, `parcours`, `domaine`, `mel`) VALUES
+(20154790, 'ABBOUR', 'ASMAA', 'L3', 'meca', 'univ', 'Asmaa.Abbour.Etu@univ-lemans.fr'),
+(20155106, 'AGAISA', 'FREDERIC', 'L1', '', 'univ', 'Frederic.Agaisa.Etu@univ-lemans.fr'),
+(20155455, 'AIT MERRI', 'BOUCHRA', 'L3', 'acou', 'univ', 'Bouchra.Ait_Merri.Etu@univ-lemans.fr'),
+(20140676, 'ALEXANDRE', 'LOÏC', 'L2', '', 'univ', 'Loic.Alexandre.Etu@univ-lemans.fr'),
+(20103057, 'ALKASSOUM KHALID', 'NADIA', 'L1', '', 'univ', 'Nadia.Alkassoum_Khalid.Etu@univ-lemans.fr'),
+(20145633, 'ALRIC', 'ANTOINE', 'L1', '', 'univ', 'Antoine.Alric.Etu@univ-lemans.fr'),
+(20144909, 'BARDOUX', 'MATTHIEU', 'L1', '', 'univ', 'Matthieu.Bardoux.Etu@univ-lemans.fr'),
+(20156065, 'BELLEUS', 'HATTMANN', 'M2', '', 'univ', 'Hattmann.Belleus.Etu@univ-lemans.fr'),
+(20122898, 'BENEDETTI', 'LAURETTE', 'M2', '', 'univ', 'Laurette.Benedetti.Etu@univ-lemans.fr'),
+(20101825, 'BENOUARET', 'MEHDI', 'L1', '', 'univ', 'Mehdi.Benouaret.Etu@univ-lemans.fr'),
+(20141580, 'BERARD', 'WILLIAM', 'L1', '', 'univ', 'William.Berard.Etu@univ-lemans.fr'),
+(20154686, 'BERGEON', 'PABLO', 'L2', '', 'univ', 'Pablo.Bergeon.Etu@univ-lemans.fr'),
+(20152695, 'BERNARD', 'LOÏC', 'L1', '', 'univ', 'Loic.Bernard.Etu@univ-lemans.fr'),
+(20121892, 'BERTET', 'THÉO', 'L3', 'acou', 'univ', 'Theo.Bertet.Etu@univ-lemans.fr'),
+(20130493, 'BESNOIST', 'MARCELIN', 'L3', 'acou', 'univ', 'Marcelin.Besnoist.Etu@univ-lemans.fr'),
+(20123023, 'BIGOT', 'BASTIEN', 'M1', '', 'univ', 'Bastien.Bigot.Etu@univ-lemans.fr'),
+(20150189, 'BILLAUD', 'LORIS', 'M1', '', 'univ', 'Loris.Billaud.Etu@univ-lemans.fr'),
+(20123435, 'BLANQUART', 'ANTHONY', 'M1', '', 'univ', 'Anthony.Blanquart.Etu@univ-lemans.fr'),
+(20152174, 'BLUTEAU', 'LÉA', 'L2', '', 'univ', 'Lea.Bluteau.Etu@univ-lemans.fr'),
+(20154137, 'BOISSINOT', 'MAEL', 'L3', 'acou', 'univ', 'Mael.Boissinot.Etu@univ-lemans.fr'),
+(20151803, 'BOUQUET', 'TRISTAN', 'L1', '', 'univ', 'Tristan.Bouquet.Etu@univ-lemans.fr'),
+(20150678, 'BOURIN', 'VICTOR', 'M1', '', 'univ', 'Victor.Bourin.Etu@univ-lemans.fr'),
+(20150933, 'BRINON', 'BAPTISTE', 'L1', '', 'univ', 'Baptiste.Brinon.Etu@univ-lemans.fr'),
+(20125584, 'BROCARD', 'ANDREW', 'L3', 'acou', 'univ', 'Andrew.Brocard.Etu@univ-lemans.fr'),
+(20156053, 'BROCHERIEUX', 'THIBAULT', 'L1', '', 'univ', 'Thibault.Brocherieux.Etu@univ-lemans.fr'),
+(20131308, 'BROU', 'N''GOAN', 'L3', 'meca', 'univ', 'NGoan.Brou.Etu@univ-lemans.fr'),
+(20143885, 'BROUSSIER', 'BAPTISTE', 'M1', '', 'univ', 'Baptiste.Broussier.Etu@univ-lemans.fr'),
+(20143987, 'BUISSON', 'JONAS', 'L3', 'acou', 'univ', 'Jonas.Buisson.Etu@univ-lemans.fr'),
+(20152709, 'BUTLER', 'OSCAR', 'L1', '', 'univ', 'Oscar.Butler.Etu@univ-lemans.fr'),
+(20111933, 'CAMI', 'ÉLINA', 'M1', '', 'univ', 'Elina.Cami.Etu@univ-lemans.fr'),
+(20144910, 'CAO', 'BOXIN', 'L1', '', 'univ', 'Boxin.Cao.Etu@univ-lemans.fr'),
+(20111292, 'CARRERO', 'RÉMY', 'M2', '', 'univ', 'remy.Carrero.Etu@univ-lemans.fr'),
+(20152200, 'CATHELIN', 'VIVIEN', 'L3', 'acou', 'univ', 'Vivien.Cathelin.Etu@univ-lemans.fr'),
+(20122370, 'CAVALIERI', 'THÉO', 'M1', '', 'univ', 'Theo.Cavalieri.Etu@univ-lemans.fr'),
+(20141226, 'CERRI', 'LUCAS', 'L2', '', 'univ', 'Lucas.Cerri.Etu@univ-lemans.fr'),
+(20140498, 'CHAMPION', 'TANGUY', 'L2', '', 'univ', 'Tanguy.Champion.Etu@univ-lemans.fr'),
+(20152456, 'CHAPUY', 'MATTÉO', 'L3', 'acou', 'univ', 'Matteo.Chapuy.Etu@univ-lemans.fr'),
+(20154251, 'CHAUVEAU', 'NICOLAS', 'L2', '', 'univ', 'Nicolas.Chauveau.Etu@univ-lemans.fr'),
+(20145561, 'CHEN', 'XI', 'L3', 'meca', 'univ', 'Xi_Chen.Etu@univ-lemans.fr'),
+(20125716, 'CHEN', 'MING', 'M1', '', 'univ', 'Ming.Chen.Etu@univ-lemans.fr'),
+(20131381, 'CHEVALIER', 'LOUIS', 'L3', 'acou', 'univ', 'Louis.Chevalier.Etu@univ-lemans.fr'),
+(20141738, 'CHUPIN', 'ADÈLE', 'L2', '', 'univ', 'Adele.Chupin.Etu@univ-lemans.fr'),
+(20081766, 'CIRON', 'FABIEN', 'L1', '', 'univ', 'Fabien.Ciron.Etu@univ-lemans.fr'),
+(20121300, 'COHEN', 'MEHDI', 'L1', '', 'univ', 'Mehdi.Cohen.Etu@univ-lemans.fr'),
+(20151267, 'COMBASTEIX', 'BENOIT', 'L1', '', 'univ', 'Benoit.Combasteix.Etu@univ-lemans.fr'),
+(20133458, 'CONTOUR', 'BAPTISTE', 'L3', 'acou', 'univ', 'Baptiste.Contour.Etu@univ-lemans.fr'),
+(20151050, 'CORMIER', 'PIERRE-LOUIS', 'L1', '', 'univ', 'Pierre-Louis.Cormier.Etu@univ-lemans.fr'),
+(20120427, 'COR1', 'GWENIVIG', 'L3', 'acou', 'univ', 'Gwenivig.Cor1.Etu@univ-lemans.fr'),
+(20152561, 'COTTAIS', 'ANTOINE', 'L1', '', 'univ', 'Antoine.Cottais.Etu@univ-lemans.fr'),
+(20154882, 'COULON', 'SWANN', 'L1', '', 'univ', 'Swann.Coulon.Etu@univ-lemans.fr'),
+(20096468, 'CUI', 'BOSHU', 'L3', 'acou', 'univ', 'Boshu.Cui.Etu@univ-lemans.fr'),
+(20153137, 'DE MEYER', 'SACHA', 'L1', '', 'univ', 'Sacha.de_Meyer.Etu@univ-lemans.fr'),
+(20152178, 'DEBIAIS', 'CORENTIN', 'L2', '', 'univ', 'Corentin.Debiais.Etu@univ-lemans.fr'),
+(20130865, 'DEBONNE', 'VALENTIN', 'L1', '', 'univ', 'Valentin.Debonne.Etu@univ-lemans.fr'),
+(20144278, 'DECUP', 'FÉLIX', 'L2', '', 'univ', 'Felix.Decup.Etu@univ-lemans.fr'),
+(20112207, 'DEFONTAINE', 'JEAN-SULIAC', 'M2', '', 'univ', 'Jean-Suliac.Defontaine.Etu@univ-lemans.fr'),
+(20143665, 'DELALANDE', 'RONAN', 'M1', '', 'univ', 'ronan.Delalande.Etu@univ-lemans.fr'),
+(20124049, 'DESCHAMPS', 'VIRGIL', 'L3', 'acou', 'univ', 'Virgil.Deschamps.Etu@univ-lemans.fr'),
+(20144319, 'DESNOS', 'GUIRAL', 'M2', '', 'univ', 'Guiral.Desnos.Etu@univ-lemans.fr'),
+(20141328, 'DESNOS', 'SIMON', 'L1', '', 'univ', 'Simon.Desnos.Etu@univ-lemans.fr'),
+(20155652, 'DESPRES', 'CLÉMENT', 'L1', '', 'univ', 'Clement.Despres.Etu@univ-lemans.fr'),
+(20150029, 'DI CARLO', 'BENJAMIN', 'L1', '', 'univ', 'Benjamin.Di_Carlo.Etu@univ-lemans.fr'),
+(20130551, 'DIABATE', 'SAMUEL', 'L3', 'acou', 'univ', 'Samuel.Diabate.Etu@univ-lemans.fr'),
+(20145024, 'DIALLO', 'BAYE ELY', 'L3', 'meca', 'univ', 'Baye_Ely.Diallo.Etu@univ-lemans.fr'),
+(20102474, 'DIALLO', 'OUMAR', 'L3', 'acou', 'univ', 'Oumar.Diallo.Etu@univ-lemans.fr'),
+(20143058, 'DINGA', 'ANDY', 'L1', '', 'univ', 'Andy.Dinga.Etu@univ-lemans.fr'),
+(20110601, 'DINSENMEYER', 'ALICE', 'M2', '', 'univ', 'Alice.Dinsenmeyer.Etu@univ-lemans.fr'),
+(20125872, 'DUBOSQ', 'THIBAULT', 'L3', 'meca', 'univ', 'Thibault.Dubosq.Etu@univ-lemans.fr'),
+(20142083, 'DUROY', 'ANNE-LISE', 'L2', '', 'univ', 'Anne-Lise.Duroy.Etu@univ-lemans.fr'),
+(20134009, 'DUSSIN-RICHARD', 'FANNY', 'L3', 'meca', 'univ', 'Fanny.Dussin-richard.Etu@univ-lemans.fr'),
+(20154394, 'EL OMARI', 'SAÏD', 'L3', 'acou', 'univ', 'Said.el_Omari.Etu@univ-lemans.fr'),
+(20144089, 'EL SAWAF', 'OSSEN', 'M2', '', 'univ', 'Ossen.el_Sawaf.Etu@univ-lemans.fr'),
+(20113067, 'ELISABETH', 'FRANCK', 'M1', '', 'univ', 'Franck.Elisabeth.Etu@univ-lemans.fr'),
+(20140475, 'FABRE', 'FRANÇOIS', 'L2', '', 'univ', 'Francois.Fabre.Etu@univ-lemans.fr'),
+(20115289, 'FEI', 'LINYU', 'M1', '', 'univ', 'Linyu.Fei.Etu@univ-lemans.fr'),
+(20151895, 'FOUCHER', 'ROMAIN', 'L1', '', 'univ', 'romain.Foucher.Etu@univ-lemans.fr'),
+(20154991, 'FRESLON-LE FLOC''H', 'FIGARO', 'L2', '', 'univ', 'Figaro.Freslon-Le_FlocH.Etu@univ-lemans.fr'),
+(20112277, 'GABORIT', 'MATHIEU', 'M2', '', 'univ', 'Mathieu.Gaborit.Etu@univ-lemans.fr'),
+(20143239, 'GASTINEAU', 'THOMAS', 'L3', 'acou', 'univ', 'Thomas.Gastineau.Etu@univ-lemans.fr'),
+(20153796, 'GAUDET', 'CLOTILDE', 'L1', '', 'univ', 'Clotilde.Gaudet.Etu@univ-lemans.fr'),
+(20142915, 'GAURAN', 'THIBAULT', 'L3', 'acou', 'univ', 'Thibault.Gauran.Etu@univ-lemans.fr'),
+(20152457, 'GEDOUIN', 'EWEN', 'L3', 'acou', 'univ', 'Ewen.Gedouin.Etu@univ-lemans.fr'),
+(20142870, 'GENOUEL', 'FLORIAN', 'L1', '', 'univ', 'Florian_Genouel.Etu@univ-lemans.fr'),
+(20142774, 'GHISTELINCK', 'YANN', 'L2', '', 'univ', 'Yann.Ghistelinck.Etu@univ-lemans.fr'),
+(20150101, 'GOASDOUÉ', 'RONAN', 'L1', '', 'univ', 'ronan.Goasdoue.Etu@univ-lemans.fr'),
+(20110749, 'GOMIS', 'DJESONE', 'L3', 'acou', 'univ', 'Djesone.Gomis.Etu@univ-lemans.fr'),
+(20153031, 'GOSTEAU', 'NINA', 'L3', 'acou', 'univ', 'Nina.Gosteau.Etu@univ-lemans.fr'),
+(20151274, 'GRALL', 'FLORIAN', 'L1', '', 'univ', 'Florian.Grall.Etu@univ-lemans.fr'),
+(20100759, 'GRICH', 'LAHCEN', 'M2', '', 'univ', 'Lahcen.Grich.Etu@univ-lemans.fr'),
+(20151177, 'GUÉHO', 'LÉNAÏG', 'L1', '', 'univ', 'Lenaig.Gueho.Etu@univ-lemans.fr'),
+(20133964, 'GUIBARD', 'ARTHUR', 'M2', '', 'univ', 'Arthur.Guibard.Etu@univ-lemans.fr'),
+(20111711, 'GUILHEM', 'ROMAIN', 'M1', '', 'univ', 'romain.Guilhem.Etu@univ-lemans.fr'),
+(20155443, 'GUIMIMI', 'AISSAM', 'L1', '', 'univ', 'Aissam.Guimimi.Etu@univ-lemans.fr'),
+(20144533, 'HAJJAJI', 'M''HAMED', 'L3', 'meca', 'univ', 'MHamed.Hajjaji.Etu@univ-lemans.fr'),
+(20152085, 'HALLOUIN', 'NATHAN', 'L1', '', 'univ', 'Nathan.Hallouin.Etu@univ-lemans.fr'),
+(20154796, 'HAMEAU', 'LOUIS', 'L1', '', 'univ', 'Louis.Hameau.Etu@univ-lemans.fr'),
+(20141528, 'HAMONET', 'VICTOR', 'L2', '', 'univ', 'Victor.Hamonet.Etu@univ-lemans.fr'),
+(20153383, 'HASSANI', 'KADER', 'L1', '', 'univ', 'Kader.Hassani.Etu@univ-lemans.fr'),
+(20140711, 'HAVARD', 'ALEXANDRE', 'L2', '', 'univ', 'Alexandre.Havard.Etu@univ-lemans.fr'),
+(20153711, 'HEBERT', 'JEREMY', 'L1', '', 'univ', 'Jeremy_Hebert.Etu@univ-lemans.fr'),
+(20153856, 'HERVE', 'LUCAS', 'L1', '', 'univ', 'Lucas.Herve.Etu@univ-lemans.fr'),
+(20112175, 'HIE', 'FÉLIX', 'M2', '', 'univ', 'Felix.Hie.Etu@univ-lemans.fr'),
+(20112473, 'IGABE', 'CHRISTIAN', 'L3', 'acou', 'univ', 'Christian.Igabe.Etu@univ-lemans.fr'),
+(20151094, 'IZAL', 'AYMERIC', 'L1', '', 'univ', 'Aymeric.Izal.Etu@univ-lemans.fr'),
+(20151917, 'IZAUTE', 'BENOÏT', 'L1', '', 'univ', 'Benoit.Izaute.Etu@univ-lemans.fr'),
+(20142274, 'JAMIER', 'GUILLAUME', 'L2', '', 'univ', 'Guillaume.Jamier.Etu@univ-lemans.fr'),
+(20141015, 'JOLLIET', 'CORENTIN', 'L1', '', 'univ', 'Corentin.Jolliet.Etu@univ-lemans.fr'),
+(20154186, 'JOLY-VUILLEMIN', 'LEOPOLD', 'L1', '', 'univ', 'Leopold.Joly-Vuillemin.Etu@univ-lemans.fr'),
+(20142339, 'JULIENNE', 'THIBAUT', 'L2', '', 'univ', 'Thibaut.Julienne.Etu@univ-lemans.fr'),
+(20141991, 'JULLIEN', 'ROMAIN', 'L1', '', 'univ', 'romain.Jullien.Etu@univ-lemans.fr'),
+(20122345, 'KAYSER', 'BILL', 'M1', '', 'univ', 'Bill.Kayser.Etu@univ-lemans.fr'),
+(20154250, 'KIMRI', 'ISMAEL', 'L3', 'meca', 'univ', 'Ismael.Kimri.Etu@univ-lemans.fr'),
+(20143416, 'LABITRIE', 'LOUIS', 'L2', '', 'univ', 'Louis.Labitrie.Etu@univ-lemans.fr'),
+(20110583, 'LAMBERT', 'JULIEN', 'M2', '', 'univ', 'Julien_Lambert.Etu@univ-lemans.fr'),
+(20144046, 'LAMOTHE', 'NATHALIE', 'L3', 'acou', 'univ', 'Nathalie.Lamothe.Etu@univ-lemans.fr'),
+(20096474, 'LAN', 'CHUANJUN', 'M2', '', 'univ', 'Chuanjun.Lan.Etu@univ-lemans.fr'),
+(20152346, 'LARDY', 'ANTHONY', 'L1', '', 'univ', 'Anthony.Lardy.Etu@univ-lemans.fr'),
+(20153511, 'LARMIGNAT', 'THOMAS', 'L1', '', 'univ', 'Thomas.Larmignat.Etu@univ-lemans.fr'),
+(20152535, 'LE BRUN', 'TERENCE', 'L1', '', 'univ', 'Terence.le_Brun.Etu@univ-lemans.fr'),
+(20130755, 'LE DEUNF', 'MERYEM', 'L3', 'acou', 'univ', 'Meryem.le_Deunf.Etu@univ-lemans.fr'),
+(20121602, 'LE GUENEDAL', 'VINCENT', 'L3', 'acou', 'univ', 'Vincent.le_Guenedal.Etu@univ-lemans.fr'),
+(20113098, 'LE MOIGN', 'GOULVEN', 'M1', '', 'univ', 'Goulven.le_Moign.Etu@univ-lemans.fr'),
+(20152303, 'LEBERT', 'KENNY', 'L1', '', 'univ', 'Kenny.Lebert.Etu@univ-lemans.fr'),
+(20153071, 'LEBOURDAIS', 'MARTIN', 'L1', '', 'univ', 'Martin.Lebourdais.Etu@univ-lemans.fr'),
+(20152939, 'LECA', 'KEVIN', 'L1', '', 'univ', 'Kevin.Leca.Etu@univ-lemans.fr'),
+(20143621, 'LECHAT', 'BASTIEN', 'L2', '', 'univ', 'Bastien.Lechat.Etu@univ-lemans.fr'),
+(20112653, 'LECHAT', 'THOMAS', 'M2', '', 'univ', 'Thomas.Lechat.Etu@univ-lemans.fr'),
+(20123064, 'LENG', 'JULIEN', 'M2', '', 'univ', 'Julien.Leng.Etu@univ-lemans.fr'),
+(20150944, 'LENGAGNE', 'ARNAUD', 'L2', '', 'univ', 'Arnaud.Lengagne.Etu@univ-lemans.fr'),
+(20120288, 'LEROUX', 'GAËL', 'L3', 'acou', 'univ', 'Gael.Leroux.Etu@univ-lemans.fr'),
+(20152289, 'LETESSIER', 'HADRIEN', 'L1', '', 'univ', 'Hadrien.Letessier.Etu@univ-lemans.fr'),
+(20145466, 'LI', 'JIESEN', 'L3', 'meca', 'univ', 'Jiesen.Li.Etu@univ-lemans.fr'),
+(20146510, 'LI', 'JINZHAO', 'L3', 'meca', 'univ', 'Jinzhao.Li.Etu@univ-lemans.fr'),
+(20145470, 'LI', 'YUHENG', 'L3', 'meca', 'univ', 'Yuheng.Li.Etu@univ-lemans.fr'),
+(20114411, 'LIU', 'HONGYU', 'M1', '', 'univ', 'Hongyu.Liu.Etu@univ-lemans.fr'),
+(20126070, 'LIU', 'JUNJIANG', 'L3', 'acou', 'univ', 'Jun.Liu.Etu@univ-lemans.fr'),
+(20136291, 'LIU', 'YICHENG', 'L1', '', 'univ', 'Yicheng.Liu.Etu@univ-lemans.fr'),
+(20145616, 'LOISON', 'THÉO', 'L1', '', 'univ', 'Theo.Loison.Etu@univ-lemans.fr'),
+(20133476, 'LONG', 'DUC', 'L2', '', 'univ', 'Duc.Long.Etu@univ-lemans.fr'),
+(20155527, 'LUNAIN', 'DAVID', 'M2', '', 'univ', 'David.Lunain.Etu@univ-lemans.fr'),
+(20135478, 'MAACHOU', 'YASSINE', 'L2', '', 'univ', 'Yassine.Maachou.Etu@univ-lemans.fr'),
+(20145237, 'MAAOUI', 'MEHDI', 'L3', 'meca', 'univ', 'Mehdi.Maaoui.Etu@univ-lemans.fr'),
+(20110743, 'MACQ', 'HIPPOLYTE', 'M1', '', 'univ', 'Hippolyte.Macq.Etu@univ-lemans.fr'),
+(20133623, 'MADIGOU', 'FLORIAN', 'M1', '', 'univ', 'Florian.Madigou.Etu@univ-lemans.fr'),
+(20155362, 'MAIRE DU POSET', 'ADRIEN', 'L2', '', 'univ', 'Adrien.Maire_du_Poset.Etu@univ-lemans.fr'),
+(20151509, 'MALIGE', 'JULIEN', 'L1', '', 'univ', 'Julien.Malige.Etu@univ-lemans.fr'),
+(20121059, 'MALLEJAC', 'MATTHIEU', 'M1', '', 'univ', 'Matthieu.Mallejac.Etu@univ-lemans.fr'),
+(20124881, 'MANY AKA''A', 'PAUL DESCHANEL', 'M1', '', 'univ', 'Paul_Deschanel.Many_AkaA.Etu@univ-lemans.fr'),
+(20152043, 'MARKARIAN', 'MAXIME', 'L1', '', 'univ', 'Maxime.Markarian.Etu@univ-lemans.fr'),
+(20140210, 'MARTINEAU', 'CHARLES-ALBAN', 'L1', '', 'univ', 'Charles-Alban.Martineau.Etu@univ-lemans.fr'),
+(20152288, 'MARTINEZ Y ROYO', 'MAEVA', 'M2', '', 'univ', 'Maeva.Martinez_Y_royo.Etu@univ-lemans.fr'),
+(20152184, 'MASSAL', 'OLIVIER', 'L1', '', 'univ', 'Olivier.Massal.Etu@univ-lemans.fr'),
+(20094668, 'MASSOSSA TELO', 'GAUDREY', 'M1', '', 'univ', 'Gaudrey.Massossa_Telo.Etu@univ-lemans.fr'),
+(20124211, 'MASTORIS', 'SPYRIDON', 'L3', 'acou', 'univ', 'Spyridon.Mastoris.Etu@univ-lemans.fr'),
+(20131941, 'MATTELIN', 'RÉMI', 'L2', '', 'univ', 'remi.Mattelin.Etu@univ-lemans.fr'),
+(20111728, 'MAURY', 'GAËTAN', 'M2', '', 'univ', 'Gaetan.Maury.Etu@univ-lemans.fr'),
+(20154052, 'MAUTE', 'MAXIME', 'L3', 'meca', 'univ', 'Maxime.Maute.Etu@univ-lemans.fr'),
+(20124362, 'MAXAUD', 'AGATHE', 'L2', '', 'univ', 'Agathe.Maxaud.Etu@univ-lemans.fr'),
+(20154869, 'MAYOUMA', 'ARDIVINE', 'L1', '', 'univ', 'Ardivine.Mayouma.Etu@univ-lemans.fr'),
+(20155755, 'MBOUNGOU NGOTH', 'ESPOIR', 'L1', '', 'univ', 'Espoir.Mboungou_Ngoth.Etu@univ-lemans.fr'),
+(20130359, 'MERRIEN', 'TONY', 'L3', 'acou', 'univ', 'Tony.Merrien.Etu@univ-lemans.fr'),
+(20154613, 'MESNAGER', 'MATTHIEU', 'L1', '', 'univ', 'Matthieu.Mesnager.Etu@univ-lemans.fr'),
+(20104004, 'MESSAGIER', 'HOUSSEM-EDDINE', 'L2', '', 'univ', 'Houssem-Eddine.Messagier.Etu@univ-lemans.fr'),
+(20150468, 'MESSAGIER', 'OUASSIM', 'L1', '', 'univ', 'Ouassim.Messagier.Etu@univ-lemans.fr'),
+(20133341, 'METEYER', 'ERWAN', 'L3', 'acou', 'univ', 'Erwan.Meteyer.Etu@univ-lemans.fr'),
+(20143381, 'MICHAUD', 'FÉLIX', 'L2', '', 'univ', 'Felix.Michaud.Etu@univ-lemans.fr'),
+(20153750, 'MICHEL', 'NILS', 'L1', '', 'univ', 'Nils.Michel.Etu@univ-lemans.fr'),
+(20131589, 'MICHELON', 'FLORIAN', 'L2', '', 'univ', 'Florian.Michelon.Etu@univ-lemans.fr'),
+(20143878, 'MONNIER', 'JEAN', 'M1', '', 'univ', 'Jean.Monnier.Etu@univ-lemans.fr'),
+(20093726, 'MONNY DAIDO ESSAKA', 'DANIEL', 'M2', '', 'univ', 'Daniel.Monny_Daido_Essaka.Etu@univ-lemans.fr'),
+(20112192, 'MORGANT', 'VICTOR', 'L1', '', 'univ', 'Victor.Morgant.Etu@univ-lemans.fr'),
+(20151938, 'MOTTIER', 'EMERIC', 'L1', '', 'univ', 'Emeric.Mottier.Etu@univ-lemans.fr'),
+(20133800, 'NGATCHOU-DOKOSSI', 'JUNIOR', 'L1', '', 'univ', 'Junior.Ngatchou-Dokossi.Etu@univ-lemans.fr'),
+(20155363, 'NIEZ', 'BAPTISTE', 'L1', '', 'univ', 'Baptiste.Niez.Etu@univ-lemans.fr'),
+(20125720, 'NIU', 'BOCHUAN', 'M1', '', 'univ', 'Bochuan.Niu.Etu@univ-lemans.fr'),
+(20153924, 'NOUVELIERE', 'BENJAMIN', 'L1', '', 'univ', 'Benjamin.Nouveliere.Etu@univ-lemans.fr'),
+(20151070, 'OKTAY', 'SAMED', 'L1', '', 'univ', 'Samed.Oktay.Etu@univ-lemans.fr'),
+(20133031, 'OTMANI', 'AMINE', 'L2', '', 'univ', 'Amine.Otmani.Etu@univ-lemans.fr'),
+(20155337, 'OUALET', 'NATHAN', 'L1', '', 'univ', 'Nathan.Oualet.Etu@univ-lemans.fr'),
+(20131594, 'OUSMANOV', 'SAID MAGOMED', 'L1', '', 'univ', 'Said.Ousmanov.Etu@univ-lemans.fr'),
+(20144037, 'OVIEDO SEGURA', 'DANIEL', 'L1', '', 'univ', 'Daniel.Oviedo_Segura.Etu@univ-lemans.fr'),
+(20132870, 'PANCHER', 'PIERRE-LOUIS', 'L3', 'acou', 'univ', 'Pierre-Louis.Pancher.Etu@univ-lemans.fr'),
+(20111455, 'PAPET', 'LÉO', 'M2', '', 'univ', 'Leo.Papet.Etu@univ-lemans.fr'),
+(20154508, 'PASTOURET', 'GILLES', 'L1', '', 'univ', 'Gilles.Pastouret.Etu@univ-lemans.fr'),
+(20143880, 'PAVLISTA', 'JUSTIN', 'L3', 'acou', 'univ', 'Justin.Pavlista.Etu@univ-lemans.fr'),
+(20150789, 'PELLOIN', 'VALENTIN', 'L1', '', 'univ', 'Valentin.Pelloin.Etu@univ-lemans.fr'),
+(20153804, 'PRESOTTO', 'HUGO', 'L1', '', 'univ', 'Hugo.Presotto.Etu@univ-lemans.fr'),
+(20101803, 'PROD''HOMME', 'ARTHUR', 'L1', '', 'univ', 'Arthur.ProdHomme.Etu@univ-lemans.fr'),
+(20105786, 'QIAN', 'CHENG', 'M2', '', 'univ', 'Cheng.Qian.Etu@univ-lemans.fr'),
+(20146535, 'QU', 'SHILIN', 'L2', '', 'univ', 'Shilin.Qu.Etu@univ-lemans.fr'),
+(20150086, 'RAHAL', 'CÉDRIC', 'L1', '', 'univ', 'Cedric.rahal.Etu@univ-lemans.fr'),
+(20151170, 'RAKOTOVAZAHA', 'TIMOTHY', 'L1', '', 'univ', 'Timothy.rakotovazaha.Etu@univ-lemans.fr'),
+(20150461, 'RAPPIN', 'CLÉMENT', 'L1', '', 'univ', 'Clement.rappin.Etu@univ-lemans.fr'),
+(20144220, 'RASSART', 'STEVEN', 'M2', '', 'univ', 'Steven.rassart.Etu@univ-lemans.fr'),
+(20152451, 'REAN-CONTO', 'LORENZO', 'L1', '', 'univ', 'Lorenzo.rean-Conto.Etu@univ-lemans.fr'),
+(20110399, 'REMOND', 'ANTOINE', 'M1', '', 'univ', 'Antoine.remond.Etu@univ-lemans.fr'),
+(20131945, 'ROMMÉ', 'ALEXIS', 'L2', '', 'univ', 'Alexis.romme.Etu@univ-lemans.fr'),
+(20133192, 'RYLIAKOVA', 'MARIIA', 'L1', '', 'univ', 'Mariia.ryliakova.Etu@univ-lemans.fr'),
+(20141595, 'SADONNET', 'ALEXANDRE', 'L1', '', 'univ', 'Alexandre.Sadonnet.Etu@univ-lemans.fr'),
+(20152046, 'SANTINO', 'OCTAVE', 'M2', '', 'univ', 'Octave.Cartier-Santino.Etu@univ-lemans.fr'),
+(20123792, 'SAURON', 'NATHAN', 'M2', '', 'univ', 'Nathan.Sauron.Etu@univ-lemans.fr'),
+(20151611, 'SAVERNA', 'CHARLOTTE', 'M1', '', 'univ', 'Charlotte.Saverna.Etu@univ-lemans.fr'),
+(20112881, 'SBIY', 'ADIL', 'M1', '', 'univ', 'Adil.Sbiy.Etu@univ-lemans.fr'),
+(20150340, 'SEBILLE', 'FLORIAN', 'L1', '', 'univ', 'Florian.Sebille.Etu@univ-lemans.fr'),
+(20154122, 'SEHBANI', 'HAYAT', 'L3', 'meca', 'univ', 'Hayat.Sehbani.Etu@univ-lemans.fr'),
+(20132942, 'SIMÉONI', 'HERMES', 'L2', '', 'univ', 'Hermes.Simeoni.Etu@univ-lemans.fr'),
+(20153914, 'SIVADON', 'AUDREY', 'L2', '', 'univ', 'Audrey.Sivadon.Etu@univ-lemans.fr'),
+(20154650, 'SOMVILLE', 'ALEXANDRE', 'L1', '', 'univ', 'Alexandre.Somville.Etu@univ-lemans.fr'),
+(20124934, 'TADONTSA TEKEU', 'BORIS ACHILLE', 'M1', '', 'univ', 'Boris_Achille.Tadontsa_Tekeu.Etu@univ-lemans.fr'),
+(20146474, 'TANG', 'YU KE', 'L1', '', 'univ', 'Yu_Ke.Tang.Etu@univ-lemans.fr'),
+(20135724, 'TCHOUBOUM A GAM', 'EVELYNE GHISLAINE', 'M2', '', 'univ', 'Evelyne.Tchouboum_A_Gam.Etu@univ-lemans.fr'),
+(20142908, 'TERRIEN', 'ALEXANDRE', 'L1', '', 'univ', 'Alexandre.Terrien.Etu@univ-lemans.fr'),
+(20112263, 'TERROIR', 'ARTHUR', 'L3', 'acou', 'univ', 'Arthur.Terroir.Etu@univ-lemans.fr'),
+(20143364, 'TESTARD', 'STEVEN', 'L1', '', 'univ', 'Steven.Testard.Etu@univ-lemans.fr'),
+(20146292, 'TEYSSIER', 'TITOUAN', 'L1', '', 'univ', 'Titouan.Teyssier.Etu@univ-lemans.fr'),
+(20145266, 'THONY', 'SÉBASTIEN', 'L2', '', 'univ', 'Sebastien.Thony.Etu@univ-lemans.fr'),
+(20135555, 'THRÉARD', 'THÉO', 'L3', 'acou', 'univ', 'Theo.Threard.Etu@univ-lemans.fr'),
+(20155360, 'TOIBIBOU', 'ABDALLAH', 'L1', '', 'univ', 'Abdallah.Toibibou.Etu@univ-lemans.fr'),
+(20115588, 'TONG', 'HAOYANG', 'M2', '', 'univ', 'Haoyang.Tong.Etu@univ-lemans.fr'),
+(20150409, 'TOUSSAINT', 'HUGO', 'L1', '', 'univ', 'Hugo.Toussaint.Etu@univ-lemans.fr'),
+(20151628, 'TROTTIER', 'ARTHUR', 'L1', '', 'univ', 'Arthur.Trottier.Etu@univ-lemans.fr'),
+(20144297, 'VAN BAARSEL', 'TOBIAS', 'M2', '', 'univ', 'Tobias.Van_Baarsel.Etu@univ-lemans.fr'),
+(20151890, 'VERWICHT', 'LUCAS', 'L1', '', 'univ', 'Lucas.Verwicht.Etu@univ-lemans.fr'),
+(97002413, 'VIVION', 'AURELIEN', 'M2', '', 'univ', 'Aurelien.Vivion.Etu@univ-lemans.fr'),
+(20146007, 'WADJI TCHUISSI', 'ARMAND BRICE', 'M1', '', 'univ', 'Armand_Brice.Wadji_Tchuissi.Etu@univ-lemans.fr'),
+(20125717, 'WANG', 'AO', 'M1', '', 'univ', 'Ao.Wang.Etu@univ-lemans.fr'),
+(20134885, 'WU', 'SIMIAO', 'L3', 'acou', 'univ', 'Simiao.Wu.Etu@univ-lemans.fr'),
+(20126067, 'XIA', 'YIN', 'L3', 'acou', 'univ', 'Yin.Xia.Etu@univ-lemans.fr'),
+(20146514, 'XUE', 'MIN', 'L3', 'meca', 'univ', 'Min.Xue.Etu@univ-lemans.fr'),
+(20155026, 'YAHIAOUI', 'KAHINA', 'L1', '', 'univ', 'Kahina.Yahiaoui.Etu@univ-lemans.fr'),
+(20125707, 'YAO', 'JIANI', 'L3', 'acou', 'univ', 'Jiani.Yao.Etu@univ-lemans.fr'),
+(20146455, 'YAO', 'WENCONG', 'L1', '', 'univ', 'Wencong.Yao.Etu@univ-lemans.fr'),
+(20096066, 'YODJOUEN', 'CEDRIC ULRICH', 'M1', '', 'univ', 'Cedric_Ulrich.Yodjouen.Etu@univ-lemans.fr'),
+(20124951, 'YONGA NDJOMI', 'EDDIE PACHELIE', 'M1', '', 'univ', 'Eddie_Pachelie.Yonga_Ndjomi.Etu@univ-lemans.fr'),
+(20094452, 'YU', 'XIAOYANG', 'M2', '', 'univ', 'Xiaoyang.Yu.Etu@univ-lemans.fr'),
+(20105931, 'YUAN', 'JUNCHAO', 'M1', '', 'univ', 'Junchao.Yuan.Etu@univ-lemans.fr'),
+(20130318, 'ZHANG', 'FAN', 'L1', '', 'univ', 'Zhang.Fan.Etu@univ-lemans.fr'),
+(20105790, 'ZHANG', 'GUISONG', 'M1', '', 'univ', 'Guisong.Zhang.Etu@univ-lemans.fr'),
+(20115595, 'ZHANG', 'LIUJIAN', 'M2', '', 'univ', 'Liujian.Zhang.Etu@univ-lemans.fr'),
+(20105792, 'ZHANG', 'NAN', 'M1', '', 'univ', 'Nan.Zhang.Etu@univ-lemans.fr'),
+(20136267, 'ZHANG', 'NIANLU', 'L2', '', 'univ', 'Nianlu.Zhang.Etu@univ-lemans.fr'),
+(20136288, 'ZHOU', 'LITAO', 'L3', 'meca', 'univ', 'Litao.Zhou.Etu@univ-lemans.fr');
 
 -- --------------------------------------------------------
 
@@ -2746,8 +2985,11 @@ CREATE TABLE IF NOT EXISTS `Professeurs` (
   `Professeur_prenom` varchar(35) NOT NULL,
   `Professeur_nom` varchar(35) NOT NULL,
   `Professeur_mail` varchar(35) DEFAULT NULL,
-  `Professeur_password` varchar(15) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `Professeur_password` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`Professeur_id`),
+  UNIQUE KEY `Professeur_id` (`Professeur_id`),
+  KEY `Professeur_id_2` (`Professeur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `Professeurs`
@@ -2764,13 +3006,100 @@ INSERT INTO `Professeurs` (`Professeur_id`, `Professeur_prenom`, `Professeur_nom
 (8, 'Jean-Michel', 'Génevaux', NULL, NULL),
 (9, 'Manuel', 'Melon', NULL, NULL),
 (10, 'Najat', 'Tahani', NULL, NULL),
-(11, 'Catherine', 'Potel', NULL, NULL),
 (12, 'Bruno', 'Brouard', NULL, NULL),
 (13, 'Bernard', 'Castagnède', NULL, NULL),
 (14, 'Guillaume', 'Penelet', NULL, NULL),
 (15, 'Frédéric', 'Ablitzer', NULL, NULL),
-(16, 'Lihore', 'Bertrand', NULL, NULL);
+(11, 'Lihore', 'Bertrand', NULL, NULL);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+-- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET FOREIGN_KEY_CHECKS=0;
+USE `projet5`;
+
+
+ALTER TABLE `competences` 
+ADD CONSTRAINT `FK1_COMPPAR1`
+  FOREIGN KEY (`Code`)
+  REFERENCES `compparent` (`CompParent_Son`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+  
+  ALTER TABLE `competences` 
+ADD CONSTRAINT `FK2_COMPPAR2`
+  FOREIGN KEY (`Code`)
+  REFERENCES `compparent` (`CompParent_Father`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+  
+  
+  ALTER TABLE `competences` 
+ADD CONSTRAINT `FK3_COMPRESP`
+  FOREIGN KEY (`Code`)
+  REFERENCES `compresp` (`CompResp_CompCode`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+  
+   ALTER TABLE `competences` 
+ADD CONSTRAINT `FK4_COMPETUD`
+  FOREIGN KEY (`Code`)
+  REFERENCES `competud` (`CompEtud_CompetenceCode`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+  
+  
+   ALTER TABLE `Professeurs` 
+ADD CONSTRAINT `FK5_PROFCOMP`
+  FOREIGN KEY (`Professeur_id`)
+  REFERENCES `compresp` (`CompResp_ProfId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+   ALTER TABLE `Professeurs` 
+ADD CONSTRAINT `FK6_PROFCOURS`
+  FOREIGN KEY (`Professeur_id`)
+  REFERENCES `CoursProf` (`CoursProf_ProfId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+  
+   ALTER TABLE `Cours` 
+ADD CONSTRAINT `FK7_COURSPROF`
+  FOREIGN KEY (`Cours_id`)
+  REFERENCES `CoursProf` (`CoursProf_CoursId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+  
+    ALTER TABLE `Cours` 
+ADD CONSTRAINT `FK8_COURSCOMP`
+  FOREIGN KEY (`Cours_id`)
+  REFERENCES `competences` (`CoursId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+  ALTER TABLE `Cours` 
+ADD CONSTRAINT `FK9_COURSETUD`
+  FOREIGN KEY (`Cours_id`)
+  REFERENCES `CoursEtud` (`CoursEtud_CoursId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+  
+   ALTER TABLE `Etudiants` 
+ADD CONSTRAINT `FK10_ETUDCOURS`
+  FOREIGN KEY (`identifiant`)
+  REFERENCES `CoursEtud` (`CoursEtud_EtudiantId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+   ALTER TABLE `Etudiants` 
+ADD CONSTRAINT `FK11_ETUDCOMP`
+  FOREIGN KEY (`identifiant`)
+  REFERENCES `CompEtud` (`CompEtud_EtudiantId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE; 
+  
+  
+  SET FOREIGN_KEY_CHECKS=1;
